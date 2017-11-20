@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>JSBoilerRL</title>
+	<link href="lib/unicodetiles/unicodetiles.css" rel="stylesheet" type="text/css" />
+	<script src="lib/unicodetiles/unicodetiles.js"></script>
+	<script src="lib/unicodetiles/input.js"></script>
+	<script src="lib/unicodetiles/ut.WebGLRenderer.js"></script>
+	<script src="lib/unicodetiles/ut.CanvasRenderer.js"></script>
+	<script src="lib/unicodetiles/ut.DOMRenderer.js"></script>
+	<script src="rl-min.js?v=1"></script>
+	<style>
+		body {
+			background-color: black;
+			font-family: sans-serif;
+			color: white;
+		}
+		.centerer {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body onload="Game.start();">
+	<div class="centerer">
+		<div id="game"></div>
+	</div>
+	<div class="centerer">
+    	<p>A production of <a href = "http://slashie.net/" target = "_blank">Slashie</a>, powered by <a href = "http://tapiov.net/unicodetiles.js/" target = "_blank">unicodetiles.js</a></p>
+	</div>
+</body>
+</html>
