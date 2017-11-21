@@ -1,4 +1,5 @@
-rm -rf build/*
+rm -rf build
+mkdir build
 mkdir build/lib
 cp -R static-lib/* build/lib
 cp src/html/* build
