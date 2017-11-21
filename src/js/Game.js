@@ -19,7 +19,7 @@ var Game = {
 		Input.init(this);
 		this.player.updateFOV();
 		Display.refresh();
-		Display.textBox.setText("Welcome to JSBoilerRL. This is a very long text just to confirm how the textbox works with long long texts.");
+		Display.textBox.setText("Welcome to JSRL. Move around using the arrow keys, press comma to get items, [I] to access the inventory, then [U] or Enter to use items and [D] to drop them.");
 		Player.addItem(new Item(Items.BOOK_OF_MIRDAS));
 		Player.addItem(new Item(Items.IRON_SWORD));
 		Player.addItem(new Item(Items.BOOK_OF_MIRDAS));
