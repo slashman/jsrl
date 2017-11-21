@@ -8,7 +8,7 @@ module.exports = {
 		this.game = game;
 		this.term = new ut.Viewport(document.getElementById("game"), 80, 25);
 		this.eng = new ut.Engine(this.term, this.getDisplayedTile.bind(this), 80, 25);
-		this.textBox = new TextBox(this.term, 2, 80, {x:0, y:0});
+		this.textBox = new TextBox(this.term, 2, 80, {x:0, y:0}, this);
 		this.inventoryBox = new Box(this.term, 15, 40, {x:19, y:4});
 	},
 	getDisplayedTile: function(x,y){
