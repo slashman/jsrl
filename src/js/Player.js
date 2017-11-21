@@ -99,7 +99,13 @@ module.exports = {
 			xx += dx; yy += dy;
 		}
 	},
+	canPick: function(){
+		return this.items.length < 24;
+	},
 	addItem: function(item){
+		if (this.items.length === 24){
+			return;
+		}
 		this.items.push(item);
 		this.items.sort(this.itemSorter);
 	},
@@ -117,9 +123,13 @@ module.exports = {
 	tryPickup: function(){
 		var item = this.game.world.level.getItem(this.x, this.y);
 		if (item){
-			this.game.display.message("You pickup the "+item.def.name);
-			this.game.world.level.removeItem(this.x, this.y);
-			this.addItem(item);
+			if (!this.canPick()){
+				this.game.display.message("You can't pickup the "+item.def.name);
+			} else {
+				this.game.display.message("You pickup the "+item.def.name);
+				this.game.world.level.removeItem(this.x, this.y);
+				this.addItem(item);
+			}
 		}
 	},
 	tryDrop: function(item){
