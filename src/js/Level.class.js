@@ -42,6 +42,8 @@ Level.prototype = {
 		if (this.beings[x] && this.beings[x][y]){
 			return false;
 		}
+		if (this.player && this.player.x === x && this.player.y === y)
+			return false;
 		return true;
 	},
 	addExit: function(x,y, levelId, tile){
