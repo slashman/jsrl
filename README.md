@@ -24,5 +24,10 @@ http://slashie.net/jsrl
 * Delete .git
 * Create awesoem gaem
 
+# Building
+* `npm install browserify -g`
+* `./build.sh`
+* Directory `build` will contain the web directory you can serve
+
 # Credits
 Uses unicodetiles for IO - http://tapiov.net/unicodetiles.js/
