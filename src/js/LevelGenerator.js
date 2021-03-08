@@ -6,7 +6,7 @@ var Item = require('./Item.class');
 var Random = require('./Random');
 
 module.exports = {
-	generateTestLevel: function(level, fromId){
+	generateTestLevel: function(level, fromId, nextLevelId){
 		for (var x = 0; x < 80; x++){
 			level.map[x] = [];
 			for (var y = 0; y < 25; y++){
@@ -36,6 +36,6 @@ module.exports = {
 			level.player.x = xs;
 			level.player.y = ys;
 		}
-		level.addExit(Random.n(0,79),Random.n(0,25),'test'+Random.n(0,1000), Tiles.STAIRS_UP);
+		level.addExit(Random.n(0,79),Random.n(0,25),nextLevelId, Tiles.STAIRS_UP);
 	}
 }
