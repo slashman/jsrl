@@ -1,15 +1,7 @@
 @charset "utf-8";
 
-@font-face {
-	font-family: 'DejaVuSansMono';
-	src: url('DejaVuSansMono.eot');
-	src: url('DejaVuSansMono.eot?#iefix') format('eot'),
-		 url('DejaVuSansMono.woff') format('woff'),
-		 url('DejaVuSansMono.ttf') format('truetype');
-}
-
 .unicodetiles {
-	font-family: "DejaVuSansMono", "DejaVu Sans Mono", monospace;
+	font-family: "DejaVuSansMono_ut";
 	white-space: pre;
 	text-align: center;
 	line-height: 1;
