@@ -20,8 +20,9 @@ A very bare bones roguelike with a character based display with the following fe
 http://slashie.net/jsrl
 
 # How to use
-* Clone this repo
-* Delete .git
+* `git clone git@github.com:slashman/jsrl.git`
+* `cd jsrl`
+* `rm -rf .git` (Delete .git folder)
 * Create awesoem gaem
 
 # Local Development Server
