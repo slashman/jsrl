@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>JSRL</title>
-	<link href="lib/unicodetiles/unicodetiles.css" rel="stylesheet" type="text/css" />
-	<link rel="preload" as="font" href="lib/unicodetiles/DejaVuSansMono.woff" type="font/woff" crossorigin="anonymous">
-	<script src="lib/unicodetiles/unicodetiles.js"></script>
-	<script src="lib/unicodetiles/input.js"></script>
-	<script src="lib/unicodetiles/ut.WebGLRenderer.js"></script>
-	<script src="lib/unicodetiles/ut.CanvasRenderer.js"></script>
-	<script src="lib/unicodetiles/ut.DOMRenderer.js"></script>
-	<script src="rl-min.js?v=1"></script>
+	<link href="/static-lib/unicodetiles/unicodetiles.css" rel="stylesheet" type="text/css" />
+	<link rel="preload" as="font" href="/static-lib/unicodetiles/DejaVuSansMono.woff" type="font/woff" crossorigin="anonymous" />
+	<script src="/static-lib/unicodetiles/unicodetiles.js"></script>
+	<script src="/static-lib/unicodetiles/input.js"></script>
+	<script src="/static-lib/unicodetiles/ut.WebGLRenderer.js"></script>
+	<script src="/static-lib/unicodetiles/ut.CanvasRenderer.js"></script>
+	<script src="/static-lib/unicodetiles/ut.DOMRenderer.js"></script>
 	<style>
 		@font-face {
 			font-family: 'DejaVuSansMono_ut';
-			src: url('lib/unicodetiles/DejaVuSansMono.eot');
-			src: url('lib/unicodetiles/DejaVuSansMono.eot?#iefix') format('eot'),
-				url('lib/unicodetiles/DejaVuSansMono.woff') format('woff'),
-				url('lib/unicodetiles/DejaVuSansMono.ttf') format('truetype');
+			src: url('/static-lib/unicodetiles/DejaVuSansMono.eot');
+			src: url('/static-lib/unicodetiles/DejaVuSansMono.eot?#iefix') format('eot'),
+				url('/static-lib/unicodetiles/DejaVuSansMono.woff') format('woff'),
+				url('/static-lib/unicodetiles/DejaVuSansMono.ttf') format('truetype');
 		}
 
 		body {
@@ -25,15 +26,19 @@
 			font-family: sans-serif;
 			color: white;
 		}
+
 		.centerer {
 			margin-left: auto;
 			margin-right: auto;
 			text-align: center;
 		}
+
+		span {
+			font-family: DejaVuSansMono_ut;
+		}
 	</style>
 </head>
-
-<body onload="Game.start();">
+<body>
 	<div class="centerer">
 		<div id="game"></div>
 	</div>
@@ -41,9 +46,12 @@
 		<p>Create your own Roguelike using JSRL. Check out the <a href = "https://github.com/slashman/jsrl" target = "_blank">source code</a></p>
     	<p>Made by <a href = "http://slashie.net/" target = "_blank">Slashie</a>, powered by <a href = "http://tapiov.net/unicodetiles.js/" target = "_blank">unicodetiles.js</a></p>
 	</div>
-	<div style="opacity: 0">
-		<span style="font-family: DejaVuSansMono_ut;">-</span>
+	<div style="opacity: 0;">
+		<span>-</span>
 	</div>
+
+  <script type="module" src="/src/js/Game.js"></script>
+  <script src="/src/js/main.js"></script>
 
 </body>
 </html>

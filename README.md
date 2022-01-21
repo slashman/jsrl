@@ -24,10 +24,15 @@ http://slashie.net/jsrl
 * Delete .git
 * Create awesoem gaem
 
-# Building
-* `npm install browserify -g`
-* `./build.sh`
-* Directory `build` will contain the web directory you can serve
+# Local Development Server
+
+* `yarn install` or `npm install`
+* `yarn start` or `npm start`
+* Open your browser to `http://localhost:1234`
+
+# Building Distribution
+* `yarn run build` or `npm run build`
+* Directory `dist` will contain the web directory you can serve
 
 # Credits
 Uses unicodetiles for IO - http://tapiov.net/unicodetiles.js/

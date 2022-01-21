@@ -1,0 +1,14 @@
+{
+  "name": "jsrl",
+  "version": "1.0.0",
+  "description": "JavaScript Roguelike Boilerplate - The basics to start building your own",
+  "source": "src/html/index.html",
+  "scripts": {
+    "build": "parcel build",
+    "start": "parcel"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.2.1"
+  }
+}
