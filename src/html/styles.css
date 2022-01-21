@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'DejaVuSansMono_ut';
+    src: url('/static-lib/unicodetiles/DejaVuSansMono.eot');
+    src: url('/static-lib/unicodetiles/DejaVuSansMono.eot?#iefix') format('eot'),
+    url('/static-lib/unicodetiles/DejaVuSansMono.woff') format('woff'),
+    url('/static-lib/unicodetiles/DejaVuSansMono.ttf') format('truetype');
+}
+
+body {
+    background-color: black;
+    font-family: sans-serif;
+    color: white;
+}
+
+.centerer {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+span {
+    font-family: DejaVuSansMono_ut, monospace;
+}
