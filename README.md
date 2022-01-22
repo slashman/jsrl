@@ -1,8 +1,12 @@
 # jsrl
-JavaScript Roguelike Boilerplate - The basics to start building your own
+JavaScript Roguelike Template - The basics to start building your own
 
-# What is this about
-A very bare bones roguelike with a character based display with the following features
+# What is this?
+In this repo you will find a bare-bones roguelike with a character-based display, and tools to bundle it for the web.
+
+Check out the online demo at: https://slashie.net/jsrl
+
+What is this good for? the idea is you take this simple game and start adding what makes your roguelike unique!
 
 # Features
 * Player can walk around
@@ -15,9 +19,6 @@ A very bare bones roguelike with a character based display with the following fe
 * A simple Item class based on Item Type definitions
 * Infrastructure for Level Generation
 * Line wrap text boxes
-
-# Online Demo
-http://slashie.net/jsrl
 
 # How to use
 * `git clone git@github.com:slashman/jsrl.git`
