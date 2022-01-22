@@ -20,14 +20,20 @@ A very bare bones roguelike with a character based display with the following fe
 http://slashie.net/jsrl
 
 # How to use
-* Clone this repo
-* Delete .git
+* `git clone git@github.com:slashman/jsrl.git`
+* `cd jsrl`
+* `rm -rf .git` (Delete .git folder)
 * Create awesoem gaem
 
-# Building
-* `npm install browserify -g`
-* `./build.sh`
-* Directory `build` will contain the web directory you can serve
+# Local Development Server
+
+* `yarn install` or `npm install`
+* `yarn start` or `npm start`
+* Open your browser to `http://localhost:1234`
+
+# Building Distribution
+* `yarn run build` or `npm run build`
+* Directory `dist` will contain the web directory you can serve
 
 # Credits
 Uses unicodetiles for IO - http://tapiov.net/unicodetiles.js/
