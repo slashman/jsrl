@@ -36,12 +36,6 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-  // and load the index.html of the app.
-  //mainWindow.loadURL(url.format({
-  //  pathname: 'index.html',
-  //  protocol: PROTOCOL + ':',
-  //  slashes: true
-  //}));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
