@@ -10,7 +10,7 @@
     "start": "parcel",
     "package-linux": "npm run pre-package && electron-packager dist JSRL --overwrite --platform=linux --out=dist-builds",
     "package-mac": "npm run pre-package && electron-packager dist JSRL --overwrite --platform=darwin --out=dist-builds",
-    "package-win": "npm run pre-package && electron-packager dist JSRL --asar --overwrite --platform=win32 --out=dist-builds --icon=./src/html/favicon.ico"
+    "package-win32": "npm run pre-package && electron-packager dist JSRL --asar --overwrite --platform=win32 --out=dist-builds --icon=./src/html/favicon.ico"
   },
   "license": "MIT",
   "devDependencies": {

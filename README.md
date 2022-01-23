@@ -1,6 +1,8 @@
 # jsrl
 JavaScript Roguelike Template - The basics to start building your own
 
+![JSRL screenshot](./screenshot.png?raw=true "JSRL")
+
 # What is this?
 In this repo you will find a bare-bones roguelike with a character-based display, and tools to bundle it for the web.
 
@@ -36,5 +38,11 @@ What is this good for? the idea is you take this simple game and start adding wh
 * `yarn run build` or `npm run build`
 * Directory `dist` will contain the web directory you can serve
 
+# Building Distribution as a Desktop Application
+* Support has been added to make use of Electron for creating desktop builds of your JSRL app!
+* `yarn run package-<platform name>` where `<platform-name>` is `win32`, `linux`, or `mac` (aka. `yarn run package-win32`)
+* Output will be in `dist-builds` folder, just zip and distribute!
+* If you need to customize packaging options - https://github.com/electron/electron-packager/blob/main/usage.txt
+
 # Credits
-Uses unicodetiles for IO - http://tapiov.net/unicodetiles.js/
+* Uses unicodetiles for IO - https://tapiov.net/unicodetiles.js/
