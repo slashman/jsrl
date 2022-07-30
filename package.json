@@ -4,11 +4,28 @@
   "description": "JavaScript Roguelike Boilerplate - The basics to start building your own",
   "source": "src/html/index.html",
   "scripts": {
-    "build": "parcel build",
-    "start": "parcel"
+    "build:electron": "",
+    "build:web": "webpack --target=web --mode=production --config=webpack/webpack.config.js",
+    "electron:dev": "",
+    "start": "npm run web",
+    "web": "webpack-dev-server --target=web --mode=development --config=webpack/webpack.config.js --open"
   },
   "license": "MIT",
   "devDependencies": {
-    "parcel": "^2.2.1"
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "is-electron-renderer": "^2.0.1",
+    "minimist": "^1.2.6",
+    "sass": "^1.54.0",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3",
+    "webpack-target-electron-renderer": "^0.4.0"
   }
 }

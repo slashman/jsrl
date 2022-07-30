@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSRL</title>
+  <link href="/static-lib/unicodetiles/unicodetiles.css" rel="stylesheet" type="text/css" />
+  <link rel="preload" as="font" href="/static-lib/unicodetiles/DejaVuSansMono.woff" type="font/woff" crossorigin="anonymous" />
+  <script src="/static-lib/unicodetiles/unicodetiles.js"></script>
+  <script src="/static-lib/unicodetiles/input.js"></script>
+  <script src="/static-lib/unicodetiles/ut.WebGLRenderer.js"></script>
+  <script src="/static-lib/unicodetiles/ut.CanvasRenderer.js"></script>
+  <script src="/static-lib/unicodetiles/ut.DOMRenderer.js"></script>
+  <link href="./styles.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="./favicon.ico" sizes="any" />
+</head>
+<body>
+<div class="centerer">
+  <div id="game"></div>
+</div>
+<div class="centerer">
+  <p>Create your own Roguelike using JSRL. Check out the <a href = "https://github.com/slashman/jsrl" target = "_blank">source code</a></p>
+  <p>Made by <a href = "http://slashie.net/" target = "_blank">Slashie</a>, powered by <a href = "http://tapiov.net/unicodetiles.js/" target = "_blank">unicodetiles.js</a></p>
+</div>
+<div style="opacity: 0;">
+  <span>-</span>
+</div>
+
+<script type="module" src="/src/js/Game.js"></script>
+<script src="/src/js/main.js"></script>
+
+</body>
+</html>
