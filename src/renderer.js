@@ -4,3 +4,12 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
+
+
+
+import './css/styles.scss';
+import Game from './js/Game';
+
+window.onload = () => {
+  Game.start();
+}

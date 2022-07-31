@@ -1,4 +1,4 @@
 {
   "name": "jsrl",
-  "main": "./main.js"
+  "main": "main.js"
 }

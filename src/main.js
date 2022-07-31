@@ -4,24 +4,18 @@ const path = require('path');
 const isDev = (process.env.NODE_ENV === 'development');
 
 if (isDev) {
-  try {
-    require('electron-reloader')(module, {
-      debug: true,
-      watchRenderer: true
-    });
-  } catch (_) { console.log('Error'); }
-}
-
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-// eslint-disable-next-line global-require
-if (require('electron-squirrel-startup')) {
-  app.quit();
+  // we want to watch the output of the renderer bundle for changes
+  const distPath = path.join(__dirname, '..', 'dist/electron/**')
+  require('electron-reload')(distPath, {
+    electron: path.join(__dirname, '..', 'node_modules', '.bin', 'electron'),
+    hardResetMethod: 'exit'
+  });
 }
 
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
+    width: 900,
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
@@ -36,8 +30,10 @@ function createWindow () {
     mainWindow.loadFile('index.html');
   }
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  if (isDev) {
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools()
+  }
 }
 
 // This method will be called when Electron has finished

@@ -8,8 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-console.log('outputPath', outputPath);
-
 let options = {
   module: {
     rules: [
@@ -52,7 +50,7 @@ let options = {
   },
 
   entry: {
-    main: path.resolve(__dirname, '..', './src/js/main.js')
+    renderer: path.resolve(__dirname, '..', './src/renderer.js')
   },
 
   plugins: [
@@ -84,7 +82,9 @@ options.target = webpackTargetElectronRenderer(options);
 if (!isWeb) {
   options.plugins.push(new CopyWebpackPlugin({
     patterns: [
-      {from: path.resolve(__dirname, '..', 'electron'), to: path.resolve(__dirname, '..', outputPath) },
+      {from: path.resolve(__dirname, '..', 'src/package.json'), to: path.resolve(__dirname, '..', outputPath) },
+      {from: path.resolve(__dirname, '..', 'src/main.js'), to: path.resolve(__dirname, '..', outputPath) },
+      {from: path.resolve(__dirname, '..', 'src/preload.js'), to: path.resolve(__dirname, '..', outputPath) },
     ]
   }))
 }
