@@ -59,7 +59,7 @@ Distribution files are also seperated by either *web* or *electron* targets.
 * Directory `dist` will contain the distribution folders for the given platform
 
 # Credits
-Uses unicodetiles for IO - http://tapiov.net/unicodetiles.js/
+* Uses unicodetiles for IO - https://tapiov.net/unicodetiles.js/
 
 # LICENSE
 
