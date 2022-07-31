@@ -8,7 +8,9 @@
     "build:web": "webpack --target=web --mode=production --config=webpack/webpack.config.js",
     "electron": "concurrently \"cross-env NODE_ENV=development webpack --target=electron-renderer --mode=development --config=webpack/webpack.config.js --watch\" \"cross-env NODE_ENV=development electron .\"",
     "web": "cross-env NODE_ENV=development webpack-dev-server --target=web --mode=development --config=webpack/webpack.config.js --open",
-    "package:win32": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=win32 --out=dist --icon=./src/favicon.ico"
+    "package:win32": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=win32 --out=dist --icon=./src/favicon.ico",
+    "package:linux": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=linux --out=dist",
+    "package:mac": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=darwin --out=dist"
   },
   "license": "MIT",
   "devDependencies": {
