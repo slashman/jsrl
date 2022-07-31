@@ -1,6 +1,8 @@
 # jsrl
 JavaScript Roguelike Template - The basics to start building your own
 
+![JSRL screenshot](./screenshot.png?raw=true "JSRL")
+
 # What is this?
 In this repo you will find a bare-bones roguelike with a character-based display, and tools to bundle it for the web.
 
