@@ -1,4 +1,4 @@
-# JSRL
+# jsrl
 JavaScript Roguelike Template - The basics to start building your own
 
 # What is this?
@@ -24,6 +24,7 @@ What is this good for? the idea is you take this simple game and start adding wh
 * `git clone git@github.com:slashman/jsrl.git`
 * `cd jsrl`
 * `rm -rf .git` (Delete .git folder to start your own adventure)
+* Put your game code work within the `./src/js` folder
 * Create awesoem gaem
 
 # Local Development Server
@@ -43,14 +44,14 @@ source are hot-reloaded.
 * `yarn run electron` or `npm run electron`
 
 
-# Building Distribution
+# Building and Distribution
 
-Distribution files are also seperated by either *web* or *electron*.
+Distribution files are also seperated by either *web* or *electron* targets.
 
 ## Web
 
 * `yarn run build:web` or `npm run build:web`
-* Directory `dist/web` will contain the web directory you can serve or FTP
+* Directory `dist/web` will contain the web directory contents you can serve or FTP
 
 ## Electron
 
@@ -59,3 +60,27 @@ Distribution files are also seperated by either *web* or *electron*.
 
 # Credits
 Uses unicodetiles for IO - http://tapiov.net/unicodetiles.js/
+
+# LICENSE
+
+MIT License
+
+Copyright (c) 2017 Santiago Zapata
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
