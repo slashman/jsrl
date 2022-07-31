@@ -4,12 +4,13 @@ const webpackTargetElectronRenderer = require('webpack-target-electron-renderer'
 var argv = require('minimist')(process.argv.slice(2));
 const isWeb = (argv && argv.target === 'web');
 const outputPath = (isWeb ? 'dist/web' : 'dist/electron');
-const templatePath = (isWeb ? 'src/html/index.ejs' : 'electron/index.html');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-let options ={
+console.log('outputPath', outputPath);
+
+let options = {
   module: {
     rules: [
       {
@@ -40,32 +41,53 @@ let options ={
       }
     ],
   },
+
   output: {
     path: path.resolve(__dirname, '..', outputPath),
-    //publicPath: path.join(__dirname, '..', 'src'),
     filename: '[name]_bundle.js',
   },
+
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
+
   entry: {
     main: path.resolve(__dirname, '..', './src/js/main.js')
   },
+
   plugins: [
     new HtmlWebpackPlugin({
-      template: templatePath,
-      inject: 'body'
+      template: 'src/index.html',
+      inject: true
     }),
+
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, '..', 'public'), to: path.resolve(__dirname, '..', outputPath) },
       ],
     }),
+
     new CleanWebpackPlugin(),
   ],
+
+  devServer: {
+    static: {
+      directory: path.join(__dirname, '..', 'public'),
+    },
+    watchFiles: ['src/index.html'],
+  }
 
 };
 
 options.target = webpackTargetElectronRenderer(options);
+
+if (!isWeb) {
+  options.plugins.push(new CopyWebpackPlugin({
+    patterns: [
+      {from: path.resolve(__dirname, '..', 'electron'), to: path.resolve(__dirname, '..', outputPath) },
+    ]
+  }))
+}
+
 
 module.exports = options;
