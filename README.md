@@ -36,14 +36,14 @@ source are hot-reloaded.
 
 ## Web
 
-* `yarn install` or `npm install`
-* `yarn run web` or `npm run web`
+* `npm install`
+* `npm run web`
 * Open your browser to `http://localhost:8080`
 
 ## Electron
 
-* `yarn install` or `npm install`
-* `yarn run electron` or `npm run electron`
+* `npm install`
+* `npm run electron`
 
 
 # Building and Distribution
@@ -52,12 +52,12 @@ Distribution files are also seperated by either *web* or *electron* targets.
 
 ## Web
 
-* `yarn run build:web` or `npm run build:web`
+* `npm run build:web`
 * Directory `dist/web` will contain the web directory contents you can serve or FTP
 
 ## Electron
 
-* `yarn run package:<one of *win32*, *mac* or *linux*>`
+* `npm run package:<one of *win32*, *mac* or *linux*>`
 * Directory `dist` will contain the distribution folders for the given platform
 
 # Credits
