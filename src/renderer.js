@@ -7,7 +7,7 @@
 
 
 
-import './css/styles.scss';
+import './css/styles.css';
 import Game from './js/Game';
 
 window.onload = () => {

@@ -16,27 +16,9 @@ let options = {
         exclude: /node_modules/,
       },
       {
-        test: /\.s[ac]ss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: "sass-loader",
-            options: {
-              // Prefer `dart-sass`
-              implementation: require.resolve("sass"),
-            },
-          },
-        ]
-      },
-      {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
-      {
-        test: /\.(woff|woff2|ttf|eot)$/,
-        use: 'file-loader'
-      }
     ],
   },
 
