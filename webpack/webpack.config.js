@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 var argv = require('minimist')(process.argv.slice(2));
 const isWeb = (argv && argv.target === 'web');
@@ -12,12 +11,13 @@ let options = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js(x)?$/,
         exclude: /node_modules/,
+        use: ['babel-loader']
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
