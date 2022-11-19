@@ -1,0 +1,13 @@
+
+body {
+    background-color: black;
+    font-family: DejaVuSansMono_ut, sans-serif;
+    color: white;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+

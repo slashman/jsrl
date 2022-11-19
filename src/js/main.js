@@ -1,3 +1,0 @@
-window.onload = () => {
-  Game.start();
-}
