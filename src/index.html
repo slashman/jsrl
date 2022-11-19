@@ -7,19 +7,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<% if (process.env.NODE_ENV==="production" ) { %>
-		<meta http-equiv="Content-Security-Policy"
-			content="script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/;  img-src 'self' ">
-		<% } %>
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/;  img-src 'self' ">
+	<% } %>
 
-			<title>JSRL</title>
-			<link href="./unicodetiles/unicodetiles.css" rel="stylesheet" type="text/css" />
-			<script src="./unicodetiles/unicodetiles.js"></script>
-			<script src="./unicodetiles/input.js"></script>
-			<script src="./unicodetiles/ut.WebGLRenderer.js"></script>
-			<script src="./unicodetiles/ut.CanvasRenderer.js"></script>
-			<script src="./unicodetiles/ut.DOMRenderer.js"></script>
-			<link rel="icon" href="./favicon.ico" sizes="any" />
-			<base href="./" />
+	<title>JSRL</title>
+	<link href="./unicodetiles/unicodetiles.css" rel="stylesheet" type="text/css" />
+	<script src="./unicodetiles/unicodetiles.js"></script>
+	<script src="./unicodetiles/input.js"></script>
+	<script src="./unicodetiles/ut.WebGLRenderer.js"></script>
+	<script src="./unicodetiles/ut.CanvasRenderer.js"></script>
+	<script src="./unicodetiles/ut.DOMRenderer.js"></script>
+	<link rel="icon" href="./favicon.ico" sizes="any" />
+	<base href="./" />
 </head>
 
 <body>
@@ -30,5 +29,4 @@
 		<span style="font-family: DejaVuSansMono_ut;">-</span>
 	</div>
 </body>
-
 </html>
