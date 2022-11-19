@@ -1,7 +1,7 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const isDev = (process.env.NODE_ENV === 'development')
+const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const isDev = (process.env.NODE_ENV === 'development');
 
 if (isDev) {
   // we want to watch the output of the renderer bundle for changes
@@ -25,12 +25,12 @@ function createWindow () {
   mainWindow.setMenu(null);
 
   if (isDev) {
-    mainWindow.loadURL(`file://${__dirname}/../dist/electron/index.html`)
+    mainWindow.loadURL(`file://${__dirname}/../dist/electron/index.html`);
     
     // Open the DevTools.
-    mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools();
   } else {
-    mainWindow.loadFile('index.html')
+    mainWindow.loadFile('index.html');
   }
 
 }
