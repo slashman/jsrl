@@ -7,18 +7,18 @@
 // process.
 
 
-import './css/styles.css'
-import {isBrowser} from './environment'
-import Game from './js/Game'
+import './css/styles.css';
+import {isBrowser} from './environment';
+import Game from './js/Game';
 
 window.onload = () => {
-  console.log('starting client')
+  console.log('starting client');
   
   if (isBrowser()) {
-    console.log('running in the browser')
+    console.log('running in the browser');
   } else {
-    console.log('running in electron')
+    console.log('running in electron');
   }
 
-  Game.start()
+  Game.start();
 }
