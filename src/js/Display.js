@@ -1,16 +1,40 @@
 var TextBox = require('./ui/TextBox.class');
 var Box = require('./ui/Box.class');
 
+let theCanvas;
+
+function resizeCanvas () {
+	if (!theCanvas) {
+		return;
+	}
+	const padding = 40;
+	const gameDiv = document.getElementById('game');
+	const aspectRatio = theCanvas.height / theCanvas.width;
+	if (innerWidth * aspectRatio <= innerHeight) {
+		theCanvas.style.width = (innerWidth - padding) + "px"; 
+		theCanvas.style.height = (innerWidth * aspectRatio - padding) + "px";
+	} else {
+		theCanvas.style.width = (innerHeight * 1/aspectRatio - padding)+ "px"; 
+		theCanvas.style.height = (innerHeight - padding) + "px";
+	}
+	gameDiv.style.width = theCanvas.style.width;
+	gameDiv.style.height = theCanvas.style.height;
+}
+
+window.addEventListener("resize", resizeCanvas);
+
 module.exports = {
 	BLANK_TILE: new ut.Tile(' ', 255, 255, 255),
 	CURSOR_TILE: new ut.Tile('*', 255, 255, 255),
 	init: function(game, config){
 		this.game = game;
 		this.term = new ut.Viewport(document.getElementById("game"), 80, 25);
+		theCanvas = this.term.renderer.canvas;
 		this.eng = new ut.Engine(this.term, this.getDisplayedTile.bind(this), 80, 25);
 		this.textBox = new TextBox(this.term, 2, 80, {x:0, y:0}, this);
 		this.inventoryBox = new Box(this.term, 15, 40, {x:19, y:4});
 		this.centered = config && config.centered;
+		resizeCanvas();
 	},
 	getDisplayedTile: function(x,y){
 		var level = this.game.world.level;
