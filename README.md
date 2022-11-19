@@ -1,14 +1,14 @@
 # jsrl
-JavaScript Roguelike Template - The basics to start building your own
+JavaScript Roguelike Template - A basic roguelike you can build upon to create your own
 
 ![JSRL screenshot](./screenshot.png?raw=true "JSRL")
 
 # What is this?
-In this repo you will find a bare-bones roguelike with a character-based display, and tools to bundle it for the web.
+In this repo you will find a bare-bones roguelike with a character-based display, and tools to bundle it for the web or as an executable.
 
 Check out the online demo at: https://slashie.net/jsrl
 
-What is this good for? the idea is you take this simple game and start adding what makes your roguelike unique!
+What is this good for? the idea is: you take this simple game and start adding and transforming it into what makes your roguelike unique!
 
 # Features
 * Player can walk around
@@ -23,11 +23,15 @@ What is this good for? the idea is you take this simple game and start adding wh
 * Line wrap text boxes
 
 # How to use
-* `git clone git@github.com:slashman/jsrl.git`
-* `cd jsrl`
-* `rm -rf .git` (Delete .git folder to start your own adventure)
-* Put your game code work within the `./src/js` folder
-* Create awesoem gaem
+
+JSRL is designed for you to take a snapshot of the repository, and then part ways with it
+to create your game.
+
+Tutorials on how to create your game around the basic codebase will come soon.
+
+* Clone the repository and rename the directory you cloned it on with the name of your game.
+* Delete the existing git metadata inside the directory using `rm -rf .git`, so you can re-init your own repository 
+* Modify the code within the `./src/js` folder to create your game.
 
 # Local Development Server
 
@@ -44,7 +48,6 @@ source are hot-reloaded.
 
 * `npm install`
 * `npm run electron`
-
 
 # Building and Distribution
 
