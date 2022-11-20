@@ -12,13 +12,12 @@ import {isBrowser} from './environment';
 import Game from './js/Game';
 
 window.onload = () => {
-  console.log('starting client');
+  console.log('JSRL game starting.');
   
   if (isBrowser()) {
-    console.log('running in the browser');
+    console.log('Running in browser mode.');
   } else {
-    console.log('running in electron');
+    console.log('Running in electron mode.');
   }
-
   Game.start();
 }
