@@ -1,21 +1,35 @@
-var Display = require('./Display');
+const UnicodeTilesDisplay = require('./unicodeTilesDisplay/UnicodeTilesDisplay');
+const PIXIDisplay = require('./pixiDisplay/PixiDisplay');
+const TestDisplay = require('./TestDisplay');
+
 var World = require('./World');
 var Player = require('./Player');
 var Input = require('./Input');
 
-// Remove after tests
 var Item = require('./Item.class');
 var Items = require('./Items.enum');
-const TestDisplay = require('./TestDisplay');
 
 var Game = {
-	start: function(){
-		var selectedDisplay = TestDisplay;
+	start: async function(config){
+		let selectedDisplay;
+		switch (config.display) {
+			case 'pixi':
+				selectedDisplay = PIXIDisplay;
+				break;
+			case 'test':
+				selectedDisplay = TestDisplay;
+				break;
+			case 'unicodeTiles':
+			default:
+				selectedDisplay = UnicodeTilesDisplay;
+				break;
+		}
+
 		this.display = selectedDisplay;
 		this.world = World;
 		this.player = Player;
 		this.input = Input;
-		this.display.init(this);
+		await this.display.init(this);
 		Player.init(this);
 		World.init(this);
 		Input.init(this);

@@ -19,5 +19,7 @@ window.onload = () => {
   } else {
     console.log('Running in electron mode.');
   }
-  Game.start();
+  Game.start({
+    display: 'unicodeTiles'
+  });
 }
