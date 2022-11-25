@@ -4,6 +4,7 @@ function Being(game, level, race){
 	this.game = game;
 	this.level = level;
 	this.tile = race.tile;
+	this.tileName = race.name;
 	this.x = null;
 	this.y = null;
 	this.intent = 'CHASE';

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<% if (process.env.NODE_ENV==="production" ) { %>
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/;  img-src 'self' ">
+	<% } %>
+	<title>JSRL - Decoupled</title>
+	<link rel="icon" href="./favicon.ico" sizes="any" />
+	<script src="./unicodetiles/unicodetiles.js"></script>
+	<script src="./unicodetiles/input.js"></script>
+	<base href="./" />
+	<style>
+		tr {
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<table style = "width: 100%; text-align: center;">
+		<tr>
+			<td id = 'cell0-0'></td>
+			<td id = 'cell1-0'></td>
+			<td id = 'cell2-0'></td>
+			<td id = 'cell3-0'></td>
+			<td id = 'cell4-0'></td>
+		</tr>
+		<tr>
+			<td id = 'cell0-1'></td>
+			<td id = 'cell1-1'></td>
+			<td id = 'cell2-1'></td>
+			<td id = 'cell3-1'></td>
+			<td id = 'cell4-1'></td>
+		</tr>
+		<tr>
+			<td id = 'cell0-2'></td>
+			<td id = 'cell1-2'></td>
+			<td id = 'cell2-2'></td>
+			<td id = 'cell3-2'></td>
+			<td id = 'cell4-2'></td>
+		</tr>
+		<tr>
+			<td id = 'cell0-3'></td>
+			<td id = 'cell1-3'></td>
+			<td id = 'cell2-3'></td>
+			<td id = 'cell3-3'></td>
+			<td id = 'cell4-3'></td>
+		</tr>
+		<tr>
+			<td id = 'cell0-4'></td>
+			<td id = 'cell1-4'></td>
+			<td id = 'cell2-4'></td>
+			<td id = 'cell3-4'></td>
+			<td id = 'cell4-4'></td>
+		</tr>
+	</table>
+</body>
+</html>
