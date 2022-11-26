@@ -1,4 +1,5 @@
-const { Application, Assets, Texture, Rectangle, Sprite } = require('pixi.js');
+const { Application, Assets, Texture, Rectangle, Sprite, Text } = require('pixi.js');
+const PIXITextBox = require('./PIXITextBox.class');
 
 let theCanvas;
 
@@ -51,11 +52,22 @@ module.exports = {
 				}
 			}
 		}
-		this.textBox = {
-			setText(str) {
-				console.log(str);
+		const text = new Text('', {
+			fontFamily: 'Kenney Pixel',
+			fontSize: 128,
+			fill: 0xdddddd,
+			align: 'left',
+			wordWrap: true,
+			wordWrapWidth: 800 * 4,
+			position: {
+				x: 10,
+				y: 10,
 			}
-		}
+		});
+		text.scale.x = 0.25;
+		text.scale.y = 0.25;
+		app.stage.addChild(text);
+		this.textBox = new PIXITextBox(text);
 		resizeCanvas();
 	},
 	getTerrain: function(x,y){
@@ -163,6 +175,6 @@ module.exports = {
 		this.refresh();
 	},
 	message: function(str){
-		console.log(str);
+		this.textBox.addText(str);
 	}
 }
