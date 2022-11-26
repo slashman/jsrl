@@ -34,6 +34,7 @@ module.exports = {
 		document.body.appendChild(app.view);
 		theCanvas = app.view;
 		const spritesheetURL = config.tilesetURL;
+		const blackTexture = await Assets.load('assets/gfx/black.png');
 		const baseTexture = await Assets.load(spritesheetURL);
 		const tileSize = config.tileSize;
 		for (let x = 0; x < config.tilesetCountX; x++) {
@@ -74,6 +75,33 @@ module.exports = {
 		text.scale.y = 0.25;
 		app.stage.addChild(text);
 		this.textBox = new PIXITextBox(text);
+
+		this.inventoryBackground = new Sprite(blackTexture);
+		this.inventoryBackground.width = 106;
+		this.inventoryBackground.height = 160;
+		this.inventoryBackground.position.x = 246;
+		this.inventoryBackground.position.y = 64;
+		this.inventoryBackground.visible = false;
+		app.stage.addChild(this.inventoryBackground);
+
+		this.inventoryCursor = new Sprite(this.textureMap['24-21']);
+		this.inventoryCursor.position.x = 245;
+		this.inventoryCursor.visible = false;
+		app.stage.addChild(this.inventoryCursor);
+
+		this.inventoryText = new Text('', {
+			fontFamily: 'Kenney Pixel',
+			fontSize: config.textboxFontSize,
+			fill: 0xdddddd,
+			align: 'left',
+		});
+		this.inventoryText.scale.x = 0.25;
+		this.inventoryText.scale.y = 0.25;
+		app.stage.addChild(this.inventoryText);
+		this.inventoryText.visible = false;
+		this.inventoryText.position.x = 260;
+		this.inventoryText.position.y = 68;
+
 		resizeCanvas();
 	},
 	getTerrain: function(x,y){
@@ -160,26 +188,25 @@ module.exports = {
 		}
 	},
 	showInventory: function(){
-		this.inventoryBox.draw();
-		var xBase = 20;
-		var yBase = 5;
-		this.term.putString("Inventory", xBase, yBase, 255, 0, 0);
+		this.inventoryBackground.visible = true;
+		let string = "Inventory\n\n";
 		for (var i = 0; i < this.game.player.items.length; i++){
 			var item = this.game.player.items[i];
 			if (item == this.game.input.selectedItem){
-				this.term.put(this.CURSOR_TILE, xBase, yBase+1+i);
-			} else {
-				this.term.put(this.BLANK_TILE, xBase, yBase+1+i);
+				this.inventoryCursor.position.y = 86 + i * 10;
 			}
-			this.term.put(item.def.tile, xBase+2, yBase+1+i);
-			this.term.put(item.def.tile, xBase+2, yBase+1+i);
-			this.term.putString(item.def.name, xBase + 4, yBase+1+i, 255, 255, 255);
+			string += item.def.name + '\n';
+
+			//this.term.put(item.def.tile, xBase+2, yBase+1+i);
 		}
-		this.term.render();
+		this.inventoryText.text = string;
+		this.inventoryText.visible = true;
+		this.inventoryCursor.visible = true;
 	},
 	hideInventory: function(){
-		this.term.clear();
-		this.refresh();
+		this.inventoryBackground.visible = false;
+		this.inventoryText.visible = false;
+		this.inventoryCursor.visible = false;
 	},
 	message: function(str){
 		this.textBox.addText(str);
