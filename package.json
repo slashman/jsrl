@@ -1,7 +1,7 @@
 {
   "name": "jsrl",
-  "version": "1.0.0",
-  "description": "JavaScript Roguelike Boilerplate - The basics to start building your own",
+  "version": "0.0.4",
+  "description": "JavaScript Roguelike Template - The basics to start building your own",
   "main": "src/main.js",
   "scripts": {
     "build:electron": "cross-env NODE_ENV=production webpack --target=electron-renderer --mode=production --config=webpack/webpack.config.js",

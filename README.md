@@ -64,6 +64,12 @@ Distribution files are also seperated by either *web* or *electron* targets.
 * `npm run package:<one of *win32*, *mac* or *linux*>` OR `npm run package:<one of *win32*, *mac* or *linux*>GFX`
 * Directory `dist` will contain the distribution folders for the given platform
 
+# Version History
+* 0.0.4 - November 26, 2022 - PIXI graphical version
+* 0.0.3 - November 19, 2022 - Electron packaging, viewport scaling
+* 0.0.2 - March 2021 - Added support for static maps loading
+* 0.0.1 - November 2017 - Initial version based on PokemonRL codebase
+
 # Credits
 * Uses unicodetiles for IO - https://tapiov.net/unicodetiles.js/
 * Uses PIXI.JS for display
