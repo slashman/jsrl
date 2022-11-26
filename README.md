@@ -1,7 +1,9 @@
 # jsrl
 JavaScript Roguelike Template - A basic roguelike you can build upon to create your own
 
-![JSRL screenshot](./screenshot.png?raw=true "JSRL")
+![PIXI graphics display](./screenshot-pixi.png?raw=true "PIXI graphics display")
+![UnicodeTiles character display](./screenshot-unicodeTiles.png?raw=true "UnicodeTiles character display")
+
 
 # What is this?
 In this repo you will find a bare-bones roguelike with tile and character-based displays, and tools to bundle it for the web or as an executable.
