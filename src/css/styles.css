@@ -1,3 +1,7 @@
+@font-face {
+	font-family: 'Kenney Pixel';
+	src: url('fonts/Kenney Pixel.ttf') format('truetype');
+}
 
 body {
     background-color: black;
