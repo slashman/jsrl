@@ -20,7 +20,9 @@ window.onload = () => {
 
       viewportCountX: 27,
       viewportCountY: 27,
-      textboxFontSize: 64
+      textboxFontSize: 64,
+
+      transparentTiles: false
     }
   });
 }

@@ -102,6 +102,8 @@ module.exports = {
 		this.inventoryText.position.x = 260;
 		this.inventoryText.position.y = 68;
 
+		this.transparentTiles = config.transparentTiles;
+
 		resizeCanvas();
 	},
 	getTerrain: function(x,y){
@@ -168,8 +170,8 @@ module.exports = {
 				const mapX = player.x + x;
 				const mapY = player.y + y;
 				const being = this.getBeing(mapX, mapY);
-				const item = this.getItem(mapX, mapY);
-				const terrain = this.getTerrain(mapX, mapY);
+				const item = this.transparentTiles || !being ? this.getItem(mapX, mapY) : null;
+				const terrain = this.transparentTiles || (!being && !item) ? this.getTerrain(mapX, mapY) : null;
 				const beingTexture = being ? this.textureMap[being] : noTexture;
 				const itemTexture = item ? this.textureMap[item] : noTexture;
 				const terrainTexture = terrain ? this.textureMap[terrain.tilesetData] : noTexture;
