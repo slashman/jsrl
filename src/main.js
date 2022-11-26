@@ -29,7 +29,7 @@ function createWindow () {
 
   if (isDev) {
     mainWindow.loadURL(`file://${__dirname}/../dist/electron/index.html`);
-    
+
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
   } else {
