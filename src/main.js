@@ -35,7 +35,6 @@ function createWindow () {
   } else {
     mainWindow.loadFile('index.html');
   }
-
 }
 
 // This method will be called when Electron has finished
