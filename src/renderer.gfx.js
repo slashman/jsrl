@@ -11,6 +11,16 @@ window.onload = () => {
     console.log('Running in electron mode.');
   }
   Game.start({
-    display: 'pixi'
+    display: 'pixi',
+    displayConfig: {
+      tilesetURL: '1bitpack_kenney_1.2/colored-transparent_packed.png',
+      tilesetCountX: 49,
+      tilesetCountY: 22,
+      tileSize: 16,
+
+      viewportCountX: 27,
+      viewportCountY: 27,
+      textboxFontSize: 64
+    }
   });
 }

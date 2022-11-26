@@ -29,7 +29,7 @@ var Game = {
 		this.world = World;
 		this.player = Player;
 		this.input = Input;
-		await this.display.init(this);
+		await this.display.init(this, config.displayConfig);
 		Player.init(this);
 		World.init(this);
 		Input.init(this);
