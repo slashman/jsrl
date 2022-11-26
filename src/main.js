@@ -18,7 +18,10 @@ function createWindow () {
     width: 900,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true, // Required by pixijs
+      enableRemoteModule: true, // Required by pixijs
+      contextIsolation: false // Required by pixijs
     }
   });
 
