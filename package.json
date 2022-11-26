@@ -8,11 +8,19 @@
     "build:web": "webpack --target=web --mode=production --config=webpack/webpack.config.js",
     "electron": "concurrently \"cross-env NODE_ENV=development webpack --target=electron-renderer --mode=development --config=webpack/webpack.config.js --watch\" \"cross-env NODE_ENV=development electron .\"",
     "web": "cross-env NODE_ENV=development webpack-dev-server --target=web --mode=development --config=webpack/webpack.config.js --open",
-    "webDeco": "cross-env NODE_ENV=development webpack-dev-server --target=web --mode=development --config=webpack/webpack.deco.config.js --open",
-    "webGFX": "cross-env NODE_ENV=development webpack-dev-server --target=web --mode=development --config=webpack/webpack.gfx.config.js --open",
     "package:win32": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=win32 --out=dist --icon=./src/favicon.ico",
     "package:linux": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=linux --out=dist",
-    "package:mac": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=darwin --out=dist"
+    "package:mac": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=darwin --out=dist",
+
+    "build:electronGFX": "cross-env NODE_ENV=production webpack --target=electron-renderer --mode=production --config=webpack/webpack.gfx.config.js",
+    "build:webGFX": "webpack --target=web --mode=production --config=webpack/webpack.gfx.config.js",
+    "electronGFX": "concurrently \"cross-env NODE_ENV=development webpack --target=electron-renderer --mode=development --config=webpack/webpack.gfx.config.js --watch\" \"cross-env NODE_ENV=development electron .\"",
+    "webGFX": "cross-env NODE_ENV=development webpack-dev-server --target=web --mode=development --config=webpack/webpack.gfx.config.js --open",
+    "package:win32GFX": "npm run build:electronGFX && electron-packager dist/electron JSRL --overwrite --platform=win32 --out=dist --icon=./src/favicon.ico",
+    "package:linuxGFX": "npm run build:electronGFX && electron-packager dist/electron JSRL --overwrite --platform=linux --out=dist",
+    "package:macGFX": "npm run build:electronGFX && electron-packager dist/electron JSRL --overwrite --platform=darwin --out=dist",
+
+    "webDeco": "cross-env NODE_ENV=development webpack-dev-server --target=web --mode=development --config=webpack/webpack.deco.config.js --open"
   },
   "license": "MIT",
   "devDependencies": {
