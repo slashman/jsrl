@@ -8,6 +8,7 @@ function resizeCanvas () {
 		return;
 	}
 	const padding = 0;
+	const gameDiv = document.getElementById('game');
 	const aspectRatio = theCanvas.height / theCanvas.width;
 	if (innerWidth * aspectRatio <= innerHeight) {
 		theCanvas.style.width = (innerWidth - padding) + "px"; 
@@ -16,6 +17,8 @@ function resizeCanvas () {
 		theCanvas.style.width = (innerHeight * 1/aspectRatio - padding)+ "px"; 
 		theCanvas.style.height = (innerHeight - padding) + "px";
 	}
+	gameDiv.style.width = theCanvas.style.width;
+	gameDiv.style.height = theCanvas.style.height;
 }
 
 window.addEventListener("resize", resizeCanvas);
@@ -31,7 +34,7 @@ module.exports = {
 			width: config.tileSize * config.viewportCountX,
 			height: config.tileSize * config.viewportCountY,
 		})
-		document.body.appendChild(app.view);
+		document.getElementById('game').appendChild(app.view);
 		theCanvas = app.view;
 		const spritesheetURL = config.tilesetURL;
 		const blackTexture = await Assets.load('assets/gfx/black.png');
