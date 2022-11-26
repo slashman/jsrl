@@ -29,11 +29,13 @@ function createWindow () {
 
   if (isDev) {
     mainWindow.loadURL(`file://${__dirname}/../dist/electron/index.html`);
+
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
   } else {
     mainWindow.loadFile('index.html');
   }
+
 }
 
 // This method will be called when Electron has finished
