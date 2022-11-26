@@ -27,38 +27,44 @@ module.exports = {
 			[],[],[]
 		];
 		this.game = game;
-		const app = new Application();
+		const app = new Application({
+			width: config.tileSize * config.viewportCountX,
+			height: config.tileSize * config.viewportCountY,
+		})
 		document.body.appendChild(app.view);
 		theCanvas = app.view;
-		const spritesheetURL = '1bitpack_kenney_1.2/colored-transparent_packed.png';
+		const spritesheetURL = config.tilesetURL;
 		const baseTexture = await Assets.load(spritesheetURL);
-		for (let x = 0; x < 49; x++) {
-			for (let y = 0; y < 22; y++) {
+		const tileSize = config.tileSize;
+		for (let x = 0; x < config.tilesetCountX; x++) {
+			for (let y = 0; y < config.tilesetCountY; y++) {
 				const spriteTexture = new Texture(
 					baseTexture,
-					new Rectangle(x * 16, y * 16, 16, 16)
+					new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize)
 				);
 				this.textureMap[x+'-'+y] = spriteTexture;
 			}
 		}
-		for (let x = 0; x < 50; x++) {
-			for (let y = 0; y < 37; y++) {
+		for (let x = 0; x < config.viewportCountX; x++) {
+			for (let y = 0; y < config.viewportCountY; y++) {
 				for (let l = 0; l < 3; l++) {
 					const sprite = new Sprite(this.textureMap['0-0'])
 					app.stage.addChild(sprite);
 					this.tileLayers[l][x+'-'+y] = sprite;
-					sprite.position.x = x * 16;
-					sprite.position.y = y * 16;
+					sprite.position.x = x * tileSize;
+					sprite.position.y = y * tileSize;
 				}
 			}
 		}
+		this.semiViewportCountX = Math.floor(config.viewportCountX / 2);
+		this.semiViewportCountY = Math.floor(config.viewportCountY / 2);
 		const text = new Text('', {
 			fontFamily: 'Kenney Pixel',
-			fontSize: 128,
+			fontSize: config.textboxFontSize,
 			fill: 0xdddddd,
 			align: 'left',
 			wordWrap: true,
-			wordWrapWidth: 800 * 4,
+			wordWrapWidth: config.tileSize * config.viewportCountX * 4,
 			position: {
 				x: 10,
 				y: 10,
@@ -129,8 +135,8 @@ module.exports = {
 	refresh: function(){
 		const player = this.game.world.level.player;
 		const noTexture = this.textureMap['0-0'];
-		for (var x = -18; x < 19; x++) {
-			for (var y = -18; y < 19; y++) {
+		for (var x = -this.semiViewportCountX; x < this.semiViewportCountX; x++) {
+			for (var y = -this.semiViewportCountY; y < this.semiViewportCountY; y++) {
 				const mapX = player.x + x;
 				const mapY = player.y + y;
 				const being = this.getBeing(mapX, mapY);
@@ -139,16 +145,17 @@ module.exports = {
 				const beingTexture = being ? this.textureMap[being] : noTexture;
 				const itemTexture = item ? this.textureMap[item] : noTexture;
 				const terrainTexture = terrain ? this.textureMap[terrain.tilesetData] : noTexture;
-				this.tileLayers[0][(x+18)+'-'+(y+18)].texture = terrainTexture;
+				const index = (x+this.semiViewportCountX)+'-'+(y+this.semiViewportCountY);
+				this.tileLayers[0][index].texture = terrainTexture;
 				if (terrain) {
 					if (terrain.variation === 'outOfSight') {
-						this.tileLayers[0][(x+18)+'-'+(y+18)].tint = 0x0000CC;
+						this.tileLayers[0][index].tint = 0x0000CC;
 					} else {
-						this.tileLayers[0][(x+18)+'-'+(y+18)].tint = 0xFFFFFF;
+						this.tileLayers[0][index].tint = 0xFFFFFF;
 					}
 				} 
-				this.tileLayers[1][(x+18)+'-'+(y+18)].texture = itemTexture;
-				this.tileLayers[2][(x+18)+'-'+(y+18)].texture = beingTexture;
+				this.tileLayers[1][index].texture = itemTexture;
+				this.tileLayers[2][index].texture = beingTexture;
 			}
 		}
 	},
