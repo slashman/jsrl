@@ -4,7 +4,7 @@ JavaScript Roguelike Template - A basic roguelike you can build upon to create y
 ![JSRL screenshot](./screenshot.png?raw=true "JSRL")
 
 # What is this?
-In this repo you will find a bare-bones roguelike with a character-based display, and tools to bundle it for the web or as an executable.
+In this repo you will find a bare-bones roguelike with tile and character-based displays, and tools to bundle it for the web or as an executable.
 
 Check out the online demo at: https://slashie.net/jsrl
 
@@ -29,8 +29,7 @@ to create your game.
 
 Tutorials on how to create your game around the basic codebase will come soon.
 
-* Clone the repository and rename the directory you cloned it on with the name of your game.
-* Delete the existing git metadata inside the directory using `rm -rf .git`, so you can re-init your own repository 
+* Download a copy of the repository (https://github.com/slashman/jsrl/archive/refs/heads/master.zip).
 * Modify the code within the `./src/js` folder to create your game.
 
 # Local Development Server
@@ -41,13 +40,13 @@ source are hot-reloaded.
 ## Web
 
 * `npm install`
-* `npm run web`
+* `npm run web` OR `npm run webGFX`
 * Open your browser to `http://localhost:8080`
 
 ## Electron
 
 * `npm install`
-* `npm run electron`
+* `npm run electron` OR `npm run electronGFX`
 
 # Building and Distribution
 
@@ -55,22 +54,23 @@ Distribution files are also seperated by either *web* or *electron* targets.
 
 ## Web
 
-* `npm run build:web`
+* `npm run build:web` OR `npm run build:webGFX`
 * Directory `dist/web` will contain the web directory contents you can serve or FTP
 
 ## Electron
 
-* `npm run package:<one of *win32*, *mac* or *linux*>`
+* `npm run package:<one of *win32*, *mac* or *linux*>` OR `npm run package:<one of *win32*, *mac* or *linux*>GFX`
 * Directory `dist` will contain the distribution folders for the given platform
 
 # Credits
 * Uses unicodetiles for IO - https://tapiov.net/unicodetiles.js/
+* Uses PIXI.JS for display
 
 # LICENSE
 
 MIT License
 
-Copyright (c) 2017 Santiago Zapata
+Copyright (c) 2017-2022 Santiago Zapata
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
