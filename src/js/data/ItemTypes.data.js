@@ -1,3 +1,8 @@
+/**
+ * Determines the types of items, as well as the script when using
+ * them.
+ */
+
 module.exports = {
 	WEAPON: {
 		name: 'Weapon',

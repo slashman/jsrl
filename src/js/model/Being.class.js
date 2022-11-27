@@ -1,4 +1,10 @@
-var Random = require('./Random');
+/**
+ * Represent an "alive" entity that moves around the world
+ * and can be interacted with by the player.
+ * 
+ */
+
+var Random = require('../Random');
 
 function Being(game, level, race){
 	this.game = game;

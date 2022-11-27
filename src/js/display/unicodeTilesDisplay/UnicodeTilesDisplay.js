@@ -1,5 +1,12 @@
-var TextBox = require('./ui/TextBox.class');
-var Box = require('./ui/Box.class');
+/**
+ * Implements the Display interface using unicodetiles.js to display the
+ * level around the player using character graphics and the UI using 
+ * text components laid over the map.
+ * 
+ */
+
+var TextBox = require('./TextBox.class');
+var Box = require('./Box.class');
 
 let theCanvas;
 

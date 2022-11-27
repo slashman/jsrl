@@ -1,8 +1,10 @@
-/** Represents a text box which can be updated to
+/**
+ * Represents a text box which can be updated to
  * show a new text along with the old one until
  * it is full, in which case it shows a [More]
  * prompt, waits for a player keypress, erases it
  * selfs and continues exhibiting the same behaviour.
+ * 
  * @author Santiago Zapata
  * @author Eben Howard
  */

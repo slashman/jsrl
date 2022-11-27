@@ -1,3 +1,8 @@
+/**
+ * Single object that receives keypresses from the player and
+ * executes actions based on them.
+ */
+
 module.exports = {
 	inputEnabled: true,
 	init: function(game){

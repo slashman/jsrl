@@ -1,13 +1,19 @@
-const UnicodeTilesDisplay = require('./unicodeTilesDisplay/UnicodeTilesDisplay');
-const PIXIDisplay = require('./pixiDisplay/PixiDisplay');
-const TestDisplay = require('./TestDisplay');
+/**
+ * Single object that controls the initialization of the 
+ * game and serves as a container for its main subsystems (Display, World, Player and Input)
+ * 
+ */
 
-var World = require('./World');
-var Player = require('./Player');
+const UnicodeTilesDisplay = require('./display/unicodeTilesDisplay/UnicodeTilesDisplay');
+const PIXIDisplay = require('./display/pixiDisplay/PixiDisplay');
+const TestDisplay = require('./display/TestDisplay');
+
+var World = require('./model/World');
+var Player = require('./model/Player');
 var Input = require('./Input');
 
-var Item = require('./Item.class');
-var Items = require('./Items.enum');
+var Item = require('./model/Item.class');
+var Items = require('./data/Items.data');
 
 var Game = {
 	start: async function(config){

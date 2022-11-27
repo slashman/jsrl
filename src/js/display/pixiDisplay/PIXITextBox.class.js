@@ -1,3 +1,9 @@
+/**
+ * Wraps a text component with a function that adds texts smartly so that it can serve as a
+ * rolling message log.
+ *  
+ * @param {PIXI.Text} PIXIText A Pixi.js Text game object
+ */
 function PIXITextBox (PIXIText) {
 	this.PIXIText = PIXIText;
 	this.lastUpdateMillis = 0;

@@ -1,3 +1,13 @@
+/**
+ * Represent an area of the World, connected to others via stairs
+ * 
+ * Contains Beings, Items and exits.
+ * Controls the order of interaction of all beings and the player.
+ * 
+ * @param {*} game 
+ * @param {*} id 
+ */
+
 var Level = function(game, id){
 	this.init(game, id);
 }

@@ -1,3 +1,10 @@
+/**
+ * Implements the Display interface using pixi.js to display the
+ * level around the player using sprites and the UI using 
+ * text components (including TTF fonts) laid over the map.
+ * 
+ */
+
 const { Application, Assets, Texture, Rectangle, Sprite, Text } = require('pixi.js');
 const PIXITextBox = require('./PIXITextBox.class');
 

@@ -1,3 +1,11 @@
+/**
+ * Draws a black box in the terminal
+ * 
+ * @param {D} term 
+ * @param {*} height 
+ * @param {*} width 
+ * @param {*} position 
+ */
 function Box (term, height, width, position) {
 	this.term = term;
 	this.height = height;

@@ -1,4 +1,4 @@
-var ItemType = require('./ItemType.enum')
+var ItemType = require('./ItemTypes.data')
 
 module.exports = {
 	IRON_SWORD: {

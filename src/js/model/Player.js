@@ -1,3 +1,14 @@
+/**
+ * Object that contains the state of the player, as well as functions for it
+ * to interact with the world.
+ * 
+ * Contains the player inventory and functions to grab and drop.
+ * 
+ * Contains the player memory (tiles he has seen previously per level)
+ * 
+ * Contains the field of view logic using simple raycasting.
+ */
+
 module.exports = {
 	MAX_SIGHT_RANGE: 10,
 	x: 20,

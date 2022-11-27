@@ -1,8 +1,14 @@
-var Tiles = require('./Tiles.enum');
-var Races = require('./Races.enum');
-var Items = require('./Items.enum');
-var Being = require('./Being.class');
-var Item = require('./Item.class');
+/**
+ * Sample object for "procedural generation".
+ * 
+ * Used by the World object whenever a level needs to be generated.
+ */
+
+var Tiles = require('./data/Tiles.data');
+var Races = require('./data/Races.data');
+var Items = require('./data/Items.data');
+var Being = require('./model/Being.class');
+var Item = require('./model/Item.class');
 var Random = require('./Random');
 
 module.exports = {

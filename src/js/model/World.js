@@ -1,8 +1,14 @@
-var Level = require('./Level.class');
-var LevelGenerator = require('./LevelGenerator');
-var LevelLoader = require('./LevelLoader');
+/**
+ * Object representing the entirety of the world of the game.
+ * Connects with LevelLoader and procedural level generators to build levels as required.
+ * Contains the state of the levels generated or loaded previously.
+ */
 
-var Random = require('./Random');
+var Level = require('./Level.class');
+var LevelGenerator = require('../LevelGenerator');
+var LevelLoader = require('../LevelLoader');
+
+var Random = require('../Random');
 
 module.exports = {
 	levels: {},
