@@ -53,13 +53,13 @@ source are hot-reloaded.
 ## Web
 
 * `npm install`
-* `npm run web` OR `npm run webGFX`
+* `npm run web` OR `npm run web:pixi`
 * Open your browser to `http://localhost:8080`
 
 ## Electron
 
 * `npm install`
-* `npm run electron` OR `npm run electronGFX`
+* `npm run electron` OR `npm run electron:pixi`
 
 # Building and Distribution
 
@@ -67,12 +67,12 @@ Distribution files are also seperated by either *web* or *electron* targets.
 
 ## Web
 
-* `npm run build:web` OR `npm run build:webGFX`
+* `npm run build:web` OR `npm run build:web:pixi`
 * Directory `dist/web` will contain the web directory contents you can serve or FTP
 
 ## Electron
 
-* `npm run package:<one of *win32*, *mac* or *linux*>` OR `npm run package:<one of *win32*, *mac* or *linux*>GFX`
+* `npm run package:<one of *win32*, *mac* or *linux*>` OR `npm run package:<one of *win32*, *mac* or *linux*>:pixi`
 * Directory `dist` will contain the distribution folders for the given platform
 
 # Version History
