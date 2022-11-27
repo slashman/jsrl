@@ -60,6 +60,7 @@ let options = {
 
 };
 
+// TODO: this should be considered deprecated - it's ancient and breaks with webpack-cli ^5.x
 options.target = webpackTargetElectronRenderer(options);
 
 if (!isWeb) {
@@ -71,6 +72,5 @@ if (!isWeb) {
     ]
   }))
 }
-
 
 module.exports = options;
