@@ -8,7 +8,7 @@ window.onload = () => {
   Game.start({
     display: 'pixi',
     displayConfig: {
-      tilesetURL: 'assets/gfx/1bitpack_kenney_1.2/colored-transparent_packed.png',
+      tilesetURL: './assets/gfx/1bitpack_kenney_1.2/colored-transparent_packed.png',
       tilesetCountX: 49,
       tilesetCountY: 22,
       tileSize: 16,
