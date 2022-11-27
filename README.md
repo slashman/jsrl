@@ -32,6 +32,7 @@ to create your game.
 Tutorials on how to create your game around the basic codebase will come soon.
 
 * Download a copy of the repository (https://github.com/slashman/jsrl/archive/refs/heads/master.zip).
+  * Alternatively you can use github's Template feature https://github.com/slashman/jsrl/generate
 * Modify the code within the `./src/js` folder to create your game.
 
 # Local Development Server
