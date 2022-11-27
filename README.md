@@ -4,23 +4,33 @@ JavaScript Roguelike Template - A basic roguelike you can build upon to create y
 ![PIXI graphics display](./screenshot-pixi.png?raw=true "PIXI graphics display")
 ![UnicodeTiles character display](./screenshot-unicodeTiles.png?raw=true "UnicodeTiles character display")
 
-
 # What is this?
-In this repo you will find a bare-bones roguelike with tile and character-based displays, and tools to bundle it for the web or as an executable.
+JSRL is a bare-bones roguelike featuring both tiles and character-based displays. It can be player via web browser or as a native app for Windows, Mac and Linux.
 
 Check out the online demo at: https://slashie.net/jsrl
 
 What is this good for? the idea is: you take this simple game and start adding and transforming it into what makes your roguelike unique!
 
+# Development philosophy
+
+The unique goal of JSRL is to provide an advanced "starting point" for your project and then NOT get in your way. That is why it isn't structured as an engine whose abstractions you have to learn in order to build upon it, but rather as a small set of classes and objects that you will very likely progressively replace with your own.
+
+JSRL-based projects are completely detached from the JSRL template; once you start developing your project you are on your own. In other words, the main thing you have to understand is that JSRL is just a sample roguelike.
+
+The development of JSRL is driven by developers optionally back-porting the improvements made while developing their own games into it; contributions are cherry-picked for JSRL to remain as simple as possible while providing future developers with added utilities for their games. (An example is the addition of automatic viewport scaling).
+
+As you can see in the JSRL demo, you will get quite a boost with tile-based display, keyboard-based movement, level handling, a turns system controlling the sequence of the actions of simulated world populators, and a simple inventory.
+
+Along with that you also get all the tooling to develop the game and deploy it for web or PC via electron.
+
 # Features
-* Player can walk around
+
+* Player can walk around using keyboard
 * Raycasting Field of View algorithm 
 * Player can move between persistent levels
 * Enemies move around chasing the player
 * Player can pick up, drop and use items (including using items on a given direction)
 * Player remember visited maps
-* A simple Being class based on Races definitions, with random and follow player intents
-* A simple Item class based on Item Type definitions
 * Infrastructure for Level Generation
 * Line wrap text boxes
 
