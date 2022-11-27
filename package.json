@@ -5,21 +5,27 @@
   "main": "src/main.js",
   "scripts": {
     "build:electron": "cross-env NODE_ENV=production webpack --target=electron-renderer --mode=production --config=webpack/webpack.config.js",
+    "build:electron:pixi": "cross-env NODE_ENV=production --gfx=pixi webpack --target=electron-renderer --mode=production --config=webpack/webpack.config.js",
+
     "build:web": "webpack --target=web --mode=production --config=webpack/webpack.config.js",
-    "electron": "concurrently \"cross-env NODE_ENV=development webpack --target=electron-renderer --mode=development --config=webpack/webpack.config.js --watch\" \"cross-env NODE_ENV=development electron .\"",
-    "web": "cross-env NODE_ENV=development webpack-dev-server --target=web --mode=development --config=webpack/webpack.config.js --open",
+    "build:web:pixi": "cross-env --gfx=pixi webpack --target=web --mode=production --config=webpack/webpack.config.js",
+
+
+    "electron": "concurrently \"cross-env NODE_ENV=development webpack --target=electron-renderer --config=webpack/webpack.config.js --watch\" \"cross-env NODE_ENV=development electron .\"",
+    "electron:pixi": "concurrently \"cross-env NODE_ENV=development --gfx=pixi webpack --target=electron-renderer --config=webpack/webpack.config.js --watch\" \"cross-env NODE_ENV=development electron .\"",
+
+    "web": "cross-env NODE_ENV=development webpack-dev-server --target=web --config=webpack/webpack.config.js --open",
+    "web:pixi": "cross-env NODE_ENV=development --gfx=pixi webpack-dev-server --target=web --config=webpack/webpack.config.js --open",
+
     "package:win32": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=win32 --out=dist --icon=./src/favicon.ico",
     "package:linux": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=linux --out=dist",
     "package:mac": "npm run build:electron && electron-packager dist/electron JSRL --overwrite --platform=darwin --out=dist",
 
     "build:electronGFX": "cross-env NODE_ENV=production webpack --target=electron-renderer --mode=production --config=webpack/webpack.gfx.config.js",
     "build:webGFX": "webpack --target=web --mode=production --config=webpack/webpack.gfx.config.js",
-    "electronGFX": "concurrently \"cross-env NODE_ENV=development webpack --target=electron-renderer --mode=development --config=webpack/webpack.gfx.config.js --watch\" \"cross-env NODE_ENV=development electron .\"",
-    "webGFX": "cross-env NODE_ENV=development webpack-dev-server --target=web --mode=development --config=webpack/webpack.gfx.config.js --open",
     "package:win32GFX": "npm run build:electronGFX && electron-packager dist/electron JSRL --overwrite --platform=win32 --out=dist --icon=./src/favicon.ico",
     "package:linuxGFX": "npm run build:electronGFX && electron-packager dist/electron JSRL --overwrite --platform=linux --out=dist",
     "package:macGFX": "npm run build:electronGFX && electron-packager dist/electron JSRL --overwrite --platform=darwin --out=dist",
-
     "webDeco": "cross-env NODE_ENV=development webpack-dev-server --target=web --mode=development --config=webpack/webpack.deco.config.js --open"
   },
   "license": "MIT",
@@ -32,6 +38,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.2",
+    "dotenv": "^16.0.3",
     "electron": "^21.2.3",
     "electron-packager": "^17.1.1",
     "electron-reload": "^1.5.0",
@@ -41,6 +48,7 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0",
     "webpack-target-electron-renderer": "^0.4.0"
   },
   "babel": {
