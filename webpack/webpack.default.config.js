@@ -1,3 +1,6 @@
+/**
+ * This is the webpack configuration for the use of the DEFAULT renderer - aka. UnicodeTiles
+ */
 const {resolve} = require('path')
 
 const options = {

@@ -1,3 +1,7 @@
+/**
+ * This is the BASE webpack configuration that other configuration will inherit from
+ * via the webpack-merge mechanism
+ */
 require('dotenv').config()
 const path = require('path');
 const webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
