@@ -61,6 +61,7 @@ let options = {
 };
 
 // TODO: this should be considered deprecated - it's ancient and breaks with webpack-cli ^5.x
+//   - TARGET should be `web` by default
 options.target = webpackTargetElectronRenderer(options);
 
 if (!isWeb) {

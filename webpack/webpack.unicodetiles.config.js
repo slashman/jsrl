@@ -1,5 +1,6 @@
 /**
- * This is the webpack configuration for the use of the DEFAULT renderer - aka. UnicodeTiles
+ * This is the webpack configuration for the use of the UNICODETILES renderer.
+ * It is currently the JSRL default
  */
 const {resolve} = require('path')
 
