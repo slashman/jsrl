@@ -14,9 +14,6 @@ module.exports = (env, args) => {
   const gfx = process.env.graphics || 'unicodetiles'
   let config
 
-  console.log(args)
-  console.log(process.env)
-
   switch(gfx) {
     case 'pixi':
       config = merge(commonConfig, pixiConfig)
@@ -34,7 +31,6 @@ module.exports = (env, args) => {
       graphics: gfx
     })
   )
-
 
   return config
 }
