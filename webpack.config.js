@@ -2,9 +2,9 @@
 require('dotenv').config()
 const path = require('path')
 const { merge } = require('webpack-merge')
-const commonConfig = require('./webpack.base.config.js')
-const unicodeTilesConfig = require('./webpack.unicodetiles.config.js')
-const pixiConfig = require('./webpack.pixi.config.js')
+const commonConfig = require('./webpack/webpack.base.config.js')
+const unicodeTilesConfig = require('./webpack/webpack.unicodetiles.config.js')
+const pixiConfig = require('./webpack/webpack.pixi.config.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, args) => {
