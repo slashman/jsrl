@@ -1,9 +1,13 @@
+/**
+ * This is the BASE webpack configuration that other configuration will inherit from
+ * via the webpack-merge mechanism
+ */
+require('dotenv').config()
 const path = require('path');
 const webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
-var argv = require('minimist')(process.argv.slice(2));
+const argv = require('minimist')(process.argv.slice(2));
 const isWeb = (argv && argv.target === 'web');
 const outputPath = (isWeb ? 'dist/web' : 'dist/electron');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -32,15 +36,10 @@ let options = {
   },
 
   entry: {
-    renderer: path.resolve(__dirname, '..', './src/renderer.gfx.js')
+    renderer: path.resolve(__dirname, '..', './src/renderer.js')
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.gfx.html',
-      inject: true
-    }),
-
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, '..', 'public'), to: path.resolve(__dirname, '..', outputPath) },
@@ -50,15 +49,19 @@ let options = {
     new CleanWebpackPlugin(),
   ],
 
+  mode: process.env.mode || 'development',
+
   devServer: {
     static: {
       directory: path.join(__dirname, '..', 'public'),
     },
-    watchFiles: ['src/index.gfx.html'],
+    watchFiles: ['src/index.html'],
   }
 
 };
 
+// TODO: this should be considered deprecated - it's ancient and breaks with webpack-cli ^5.x
+//   - TARGET should be `web` by default
 options.target = webpackTargetElectronRenderer(options);
 
 if (!isWeb) {
@@ -70,6 +73,5 @@ if (!isWeb) {
     ]
   }))
 }
-
 
 module.exports = options;
