@@ -39,6 +39,9 @@ var Game = {
 		Player.init(this);
 		World.init(this);
 		Input.init(this);
+		this.display.titleScreen();
+	},
+	newGame: function () {
 		this.player.updateFOV();
 		this.display.refresh();
 		this.display.textBox.setText("Welcome to JSRL. Move around using the arrow keys, press comma to get items, [I] to access the inventory, then [U] or Enter to use items and [D] to drop them.");
@@ -48,6 +51,7 @@ var Game = {
 		Player.addItem(new Item(Items.IRON_SWORD));
 		Player.addItem(new Item(Items.SPELL_OF_LOLZORS));
 		Player.addItem(new Item(Items.BOOK_OF_AURORA));
+		this.display.activateNewGame();
 	}
 }
 

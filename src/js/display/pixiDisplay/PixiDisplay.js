@@ -5,8 +5,9 @@
  * 
  */
 
-const { Application, Assets, Texture, Rectangle, Sprite, Text } = require('pixi.js');
+const { Application, Assets, Texture, Rectangle, Sprite, Text, Container } = require('pixi.js');
 const PIXITextBox = require('./PIXITextBox.class');
+const PixiUtils = require('./PixiUtils');
 
 let theCanvas;
 
@@ -33,9 +34,6 @@ window.addEventListener("resize", resizeCanvas);
 module.exports = {
 	init: async function(game, config){
 		this.textureMap = {};
-		this.tileLayers = [
-			[],[],[]
-		];
 		this.game = game;
 		const app = new Application({
 			width: config.tileSize * config.viewportCountX,
@@ -56,11 +54,29 @@ module.exports = {
 				this.textureMap[x+'-'+y] = spriteTexture;
 			}
 		}
+		const titleScreenContainer = new Container();
+		this.titleScreenContainer = titleScreenContainer;
+		app.stage.addChild(titleScreenContainer);
+		titleScreenContainer.visible = false;
+		titleScreenContainer.addChild(
+			PixiUtils.createTextBox(20, 20, config.textboxFontSize, "JSRL Sample Roguelike")
+		);
+		titleScreenContainer.addChild(
+			PixiUtils.createTextBox(20, 40, config.textboxFontSize, "Press Space to Continue")
+		);
+
+		const mainGameContainer = new Container();
+		this.mainGameContainer = mainGameContainer;
+		app.stage.addChild(mainGameContainer);
+		mainGameContainer.visible = false;
+		this.tileLayers = [
+			[],[],[]
+		];
 		for (let x = 0; x < config.viewportCountX; x++) {
 			for (let y = 0; y < config.viewportCountY; y++) {
 				for (let l = 0; l < 3; l++) {
 					const sprite = new Sprite(this.textureMap['0-0'])
-					app.stage.addChild(sprite);
+					mainGameContainer.addChild(sprite);
 					this.tileLayers[l][x+'-'+y] = sprite;
 					sprite.position.x = x * tileSize;
 					sprite.position.y = y * tileSize;
@@ -83,7 +99,7 @@ module.exports = {
 		});
 		text.scale.x = 0.25;
 		text.scale.y = 0.25;
-		app.stage.addChild(text);
+		mainGameContainer.addChild(text);
 		this.textBox = new PIXITextBox(text);
 
 		this.inventoryBackground = new Sprite(blackTexture);
@@ -92,12 +108,12 @@ module.exports = {
 		this.inventoryBackground.position.x = 246;
 		this.inventoryBackground.position.y = 64;
 		this.inventoryBackground.visible = false;
-		app.stage.addChild(this.inventoryBackground);
+		mainGameContainer.addChild(this.inventoryBackground);
 
 		this.inventoryCursor = new Sprite(this.textureMap['24-21']);
 		this.inventoryCursor.position.x = 245;
 		this.inventoryCursor.visible = false;
-		app.stage.addChild(this.inventoryCursor);
+		mainGameContainer.addChild(this.inventoryCursor);
 
 		this.inventoryText = new Text('', {
 			fontFamily: 'Kenney Pixel',
@@ -107,7 +123,7 @@ module.exports = {
 		});
 		this.inventoryText.scale.x = 0.25;
 		this.inventoryText.scale.y = 0.25;
-		app.stage.addChild(this.inventoryText);
+		mainGameContainer.addChild(this.inventoryText);
 		this.inventoryText.visible = false;
 		this.inventoryText.position.x = 260;
 		this.inventoryText.position.y = 68;
@@ -222,5 +238,12 @@ module.exports = {
 	},
 	message: function(str){
 		this.textBox.addText(str);
+	},
+	titleScreen() {
+		this.titleScreenContainer.visible = true;
+	},
+	activateNewGame() {
+		this.titleScreenContainer.visible = false;
+		this.mainGameContainer.visible = true;
 	}
 }

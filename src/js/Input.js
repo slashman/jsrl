@@ -8,13 +8,18 @@ module.exports = {
 	init: function(game){
 		this.game = game;
 		ut.initInput(this.onKeyDown.bind(this));
-		this.mode = 'MOVEMENT';
+		this.mode = 'TITLE';
 	},
 	movedir: { x: 0, y: 0 },
 	onKeyDown: function(k){
 		if (!this.inputEnabled)
 			return;
-		if (this.mode === 'MOVEMENT'){
+		if (this.mode === 'TITLE'){
+			if (k === ut.KEY_SPACE){
+				this.game.newGame();
+				this.mode = 'MOVEMENT';
+			}
+		} else if (this.mode === 'MOVEMENT'){
 			if (k === ut.KEY_COMMA){
 				this.game.player.tryPickup();
 				return;

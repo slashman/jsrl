@@ -105,5 +105,12 @@ module.exports = {
 		this.textBox.addText(str);
 		this.textBox.draw();
 		this.term.render();
+	},
+	titleScreen() {
+		this.term.putString("JSRL Sample Roguelike", 2, 2, 255, 255, 255);
+		this.term.putString("Press Space to Start", 6, 4, 255, 255, 255);
+		this.term.render();
+	},
+	activateNewGame() {
 	}
 }
