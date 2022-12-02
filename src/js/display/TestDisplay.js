@@ -96,5 +96,11 @@ module.exports = {
 	},
 	message: function(str){
 		console.log(str);
+	},
+	titleScreen() {
+		console.log("JSRL Sample RL");
+	},
+	activateNewGame() {
+		console.log("Starting new game");
 	}
 }
