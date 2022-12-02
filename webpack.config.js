@@ -27,7 +27,7 @@ module.exports = (env, args) => {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       inject: true,
-      title: `JSRL | ${gfx} | ${target}`, // TODO: fix target for electron when electron-renderer is removed
+      title: `JSRL | ${gfx} | ${target}`,
       graphics: gfx
     })
   )

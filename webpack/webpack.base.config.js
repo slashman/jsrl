@@ -4,7 +4,6 @@
  */
 require('dotenv').config()
 const path = require('path');
-const webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 const argv = require('minimist')(process.argv.slice(2));
 const isWeb = (argv && argv.target === 'web');
 const outputPath = (isWeb ? 'dist/web' : 'dist/electron');
@@ -51,6 +50,8 @@ let options = {
 
   mode: process.env.mode || 'development',
 
+  target: process.env.target || 'web',
+
   devServer: {
     static: {
       directory: path.join(__dirname, '..', 'public'),
@@ -59,10 +60,6 @@ let options = {
   }
 
 };
-
-// TODO: this should be considered deprecated - it's ancient and breaks with webpack-cli ^5.x
-//   - TARGET should be `web` by default
-options.target = webpackTargetElectronRenderer(options);
 
 if (!isWeb) {
   options.plugins.push(new CopyWebpackPlugin({
