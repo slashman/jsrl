@@ -1,5 +1,5 @@
 # jsrl
-JavaScript Roguelike Template - A basic roguelike you can build upon to create your own
+JavaScript Roguelike Template - A basic TypeScript roguelike you can build upon to create your own
 
 ![PIXI graphics display](./screenshot-pixi.png?raw=true "PIXI graphics display")
 ![UnicodeTiles character display](./screenshot-unicodeTiles.png?raw=true "UnicodeTiles character display")
@@ -9,7 +9,16 @@ JSRL is a bare-bones roguelike featuring both tiles and character-based displays
 
 Check out the online demo at: https://slashie.net/jsrl
 
-What is this good for? the idea is: you take this simple game and start adding and transforming it into what makes your roguelike unique!
+You can use this simple skeleton game as a starting point for your full-fledged roguelike, by building on top of it and taking advantage of its features:
+
+* Walk around using the keyboard
+* Raycasting Field of View algorithm 
+* Movement between persistent levels
+* Enemies moving around chasing the player
+* An action system including actions to pick up, drop and using items
+* Memory of visited areas.
+* Infrastructure for Level Generation
+* Line wrap text boxes
 
 # Development philosophy
 
@@ -23,32 +32,25 @@ As you can see in the JSRL demo, you will get quite a boost with tile-based disp
 
 Along with that you also get all the tooling to develop the game and deploy it for web or PC via electron.
 
-# Features
-
-* Player can walk around using keyboard
-* Raycasting Field of View algorithm 
-* Player can move between persistent levels
-* Enemies move around chasing the player
-* Player can pick up, drop and use items (including using items on a given direction)
-* Player remember visited maps
-* Infrastructure for Level Generation
-* Line wrap text boxes
-
 # How to use
 
-JSRL is designed for you to take a snapshot of the repository, and then part ways with it
-to create your game.
+JSRL is designed for you to take a snapshot of the repository, and then part ways with it to create your game.
 
 Tutorials on how to create your game around the basic codebase will come soon.
 
 * Download a copy of the repository (https://github.com/slashman/jsrl/archive/refs/heads/master.zip).
   * Alternatively you can use github's Template feature https://github.com/slashman/jsrl/generate
-* Modify the code within the `./src/js` folder to create your game.
+* Modify the code within the `./src/ts` folder to create your game.
+
+# TypeScript
+
+JSRL uses typescript and includes the tools to compile it so it can be used in any browser.
+
+In case you want to remove TypeScript support and dependencies, you can use the `js` branch. However, note that you can develop in vanilla JS if you wanted, even with typescript active.
 
 # Local Development Server
 
-Local development can occur in two flavours: *web*, or *electron*. In both environments, changes to your
-source are hot-reloaded.
+Local development can occur in two flavours: *web*, or *electron*. In both environments, changes to your source are hot-reloaded.
 
 ## Web
 
@@ -76,6 +78,7 @@ Distribution files are also seperated by either *web* or *electron* targets.
 * Directory `dist` will contain the distribution folders for the given platform
 
 # Version History
+* 0.0.5 - February 23, 2023 - Migration to TypeScript
 * 0.0.4 - November 26, 2022 - PIXI graphical version
 * 0.0.3 - November 19, 2022 - Electron packaging, viewport scaling
 * 0.0.2 - March 2021 - Added support for static maps loading
@@ -89,7 +92,7 @@ Distribution files are also seperated by either *web* or *electron* targets.
 
 MIT License
 
-Copyright (c) 2017-2022 Santiago Zapata
+Copyright (c) 2017-2023 Santiago Zapata
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
