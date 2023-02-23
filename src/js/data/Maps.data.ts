@@ -1,6 +1,6 @@
-var Tiles = require('./Tiles.data');
-var Races = require('./Races.data');
-var Items = require('./Items.data');
+import Tiles from './Tiles.data';
+import Races from './Races.data';
+import Items from './Items.data';
 
 const globalDefs = [
 	{ char: '$', tile: Tiles.STAIRS_DOWN, start: true },
@@ -56,4 +56,4 @@ const levelMaps = {
 	}
 }
 
-module.exports = { globalDefs, levelMaps }
+export { globalDefs, levelMaps }

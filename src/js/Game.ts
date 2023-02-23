@@ -4,18 +4,24 @@
  * 
  */
 
-const UnicodeTilesDisplay = require('./display/unicodeTilesDisplay/UnicodeTilesDisplay');
-const PIXIDisplay = require('./display/pixiDisplay/PixiDisplay');
-const TestDisplay = require('./display/TestDisplay');
+import UnicodeTilesDisplay from './display/unicodeTilesDisplay/UnicodeTilesDisplay';
+import PIXIDisplay from'./display/pixiDisplay/PixiDisplay';
+import TestDisplay from './display/TestDisplay';
 
-var World = require('./model/World');
-var Player = require('./model/Player');
-var Input = require('./Input');
+import World from './model/World';
+import Player from './model/Player';
+import Input from './Input';
 
-var Item = require('./model/Item.class');
-var Items = require('./data/Items.data');
+import Item from './model/Item.class';
+import Items from './data/Items.data';
 
-var Game = {
+declare global {
+	interface Window {
+		Game: {}
+	}
+}
+
+const Game = {
 	start: async function(config){
 		let selectedDisplay;
 		switch (config.display) {
@@ -57,4 +63,4 @@ var Game = {
 
 window.Game = Game;
 
-module.exports = Game;
+export default Game;

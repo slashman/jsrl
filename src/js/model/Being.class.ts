@@ -4,7 +4,8 @@
  * 
  */
 
-var Random = require('../Random');
+
+import Random from '../Random';
 
 function Being(game, level, race){
 	this.game = game;
@@ -61,4 +62,4 @@ Being.prototype = {
 	}
 }
 
-module.exports = Being;
+export default Being;

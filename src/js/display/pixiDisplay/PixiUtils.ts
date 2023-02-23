@@ -1,7 +1,7 @@
-const { Text } = require('pixi.js');
+import { Text } from 'pixi.js';
 
-module.exports = {
-	createTextBox(x, y, fontSize, initialText, wordWrapWidth) {
+export default {
+	createTextBox(x, y, fontSize, initialText, wordWrapWidth?) {
 		const textBox = new Text(initialText, {
 			fontFamily: 'Kenney Pixel',
 			fontSize: fontSize,

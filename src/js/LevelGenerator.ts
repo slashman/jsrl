@@ -4,14 +4,14 @@
  * Used by the World object whenever a level needs to be generated.
  */
 
-var Tiles = require('./data/Tiles.data');
-var Races = require('./data/Races.data');
-var Items = require('./data/Items.data');
-var Being = require('./model/Being.class');
-var Item = require('./model/Item.class');
-var Random = require('./Random');
+import Tiles from './data/Tiles.data';
+import Races from './data/Races.data';
+import Items from './data/Items.data';
+import Being from './model/Being.class';
+import Item from './model/Item.class';
+import Random from './Random';
 
-module.exports = {
+export default {
 	generateTestLevel: function(level, fromId, nextLevelId){
 		for (var x = 0; x < 80; x++){
 			level.map[x] = [];

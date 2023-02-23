@@ -5,9 +5,9 @@
  * 
  */
 
-const { Application, Assets, Texture, Rectangle, Sprite, Text, Container } = require('pixi.js');
-const PIXITextBox = require('./PIXITextBox.class');
-const PixiUtils = require('./PixiUtils');
+import { Application, Assets, Texture, Rectangle, Sprite, Text, Container } from 'pixi.js';
+import PIXITextBox from './PIXITextBox.class';
+import PixiUtils from './PixiUtils';
 
 let theCanvas;
 
@@ -31,11 +31,11 @@ function resizeCanvas () {
 
 window.addEventListener("resize", resizeCanvas);
 
-module.exports = {
+export default {
 	init: async function(game, config){
 		this.textureMap = {};
 		this.game = game;
-		const app = new Application({
+		const app = new Application<HTMLCanvasElement>({
 			width: config.tileSize * config.viewportCountX,
 			height: config.tileSize * config.viewportCountY,
 		})
@@ -91,12 +91,10 @@ module.exports = {
 			fill: 0xdddddd,
 			align: 'left',
 			wordWrap: true,
-			wordWrapWidth: config.tileSize * config.viewportCountX * 4,
-			position: {
-				x: 10,
-				y: 10,
-			}
+			wordWrapWidth: config.tileSize * config.viewportCountX * 4
 		});
+		text.position.x = 10;
+		text.position.y = 10;
 		text.scale.x = 0.25;
 		text.scale.y = 0.25;
 		mainGameContainer.addChild(text);

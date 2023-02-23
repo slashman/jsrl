@@ -88,4 +88,4 @@ TextBox.prototype.clear = function() {
 	this.cury = 0;
 };
 
-module.exports = TextBox;
+export default TextBox;

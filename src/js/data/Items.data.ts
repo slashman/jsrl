@@ -1,6 +1,8 @@
-var ItemType = require('./ItemTypes.data')
+const ut = (window as any).ut;
 
-module.exports = {
+import ItemType from './ItemTypes.data';
+
+export default {
 	IRON_SWORD: {
 		type: ItemType.WEAPON,
 		name: 'Iron Sword',

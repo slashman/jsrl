@@ -1,3 +1,5 @@
+const ut = (window as any).ut;
+
 /**
  * Implements the Display interface using unicodetiles.js to display the
  * level around the player using character graphics and the UI using 
@@ -5,8 +7,8 @@
  * 
  */
 
-var TextBox = require('./TextBox.class');
-var Box = require('./Box.class');
+import TextBox from './TextBox.class';
+import Box from './Box.class';
 
 let theCanvas;
 
@@ -30,7 +32,7 @@ function resizeCanvas () {
 
 window.addEventListener("resize", resizeCanvas);
 
-module.exports = {
+export default {
 	BLANK_TILE: new ut.Tile(' ', 255, 255, 255),
 	CURSOR_TILE: new ut.Tile('*', 255, 255, 255),
 	init: function(game, config){

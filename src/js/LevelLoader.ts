@@ -3,11 +3,11 @@
  *  
  */
 
-const {globalDefs, levelMaps} = require('./data/Maps.data');
-var Being = require('./model/Being.class');
-var Item = require('./model/Item.class');
+import {globalDefs, levelMaps} from './data/Maps.data';
+import Being from './model/Being.class';
+import Item from './model/Item.class';
 
-module.exports = {
+export default {
 	loadLevel: function(level, mapId, fromId){
 		const map = levelMaps[mapId];
 		level.map = [];

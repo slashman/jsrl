@@ -1,9 +1,11 @@
+const ut = (window as any).ut;
+
 /**
  * Single object that receives keypresses from the player and
  * executes actions based on them.
  */
 
-module.exports = {
+export default {
 	inputEnabled: true,
 	init: function(game){
 		this.game = game;

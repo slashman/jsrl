@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	init: function(game, config){
 		this.game = game;
 		this.textBox = {

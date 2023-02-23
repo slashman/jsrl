@@ -13,4 +13,4 @@ Item.prototype = {
 	// JSRL Doesn't define any specific behavior for items.
 }
 
-module.exports = Item;
+export default Item;

@@ -1,3 +1,5 @@
+const ut = (window as any).ut;
+
 /**
  * Object that contains the state of the player, as well as functions for it
  * to interact with the world.
@@ -9,7 +11,7 @@
  * Contains the field of view logic using simple raycasting.
  */
 
-module.exports = {
+export default {
 	MAX_SIGHT_RANGE: 10,
 	x: 20,
 	y: 20,

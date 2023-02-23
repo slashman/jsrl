@@ -23,4 +23,4 @@ Box.prototype.draw = function(){
     }
 };
 
-module.exports = Box;
+export default Box;

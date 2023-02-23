@@ -23,4 +23,4 @@ PIXITextBox.prototype.addText = function (str) {
 }
 
 
-module.exports = PIXITextBox;
+export default PIXITextBox;

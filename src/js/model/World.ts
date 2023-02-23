@@ -4,13 +4,12 @@
  * Contains the state of the levels generated or loaded previously.
  */
 
-var Level = require('./Level.class');
-var LevelGenerator = require('../LevelGenerator');
-var LevelLoader = require('../LevelLoader');
+import Level from './Level.class';
+import LevelGenerator from '../LevelGenerator';
+import LevelLoader from '../LevelLoader';
+import Random from '../Random';
 
-var Random = require('../Random');
-
-module.exports = {
+export default {
 	levels: {},
 	init: function(game){
 		this.game = game;

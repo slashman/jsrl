@@ -3,7 +3,7 @@
  * them.
  */
 
-module.exports = {
+export default {
 	WEAPON: {
 		name: 'Weapon',
 		useFunction: function(game, item){
