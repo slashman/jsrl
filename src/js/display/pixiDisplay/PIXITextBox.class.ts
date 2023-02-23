@@ -4,23 +4,27 @@
  *  
  * @param {PIXI.Text} PIXIText A Pixi.js Text game object
  */
-function PIXITextBox (PIXIText) {
-	this.PIXIText = PIXIText;
-	this.lastUpdateMillis = 0;
-}
 
-PIXITextBox.prototype.setText = function (str) {
-	this.PIXIText.text = str;
-};
+import { Text } from "@pixi/text";
 
-PIXITextBox.prototype.addText = function (str) {
-	var currentTime = new Date().getTime();
-	if (currentTime - this.lastUpdateMillis > 200){
-		this.PIXIText.text = '';
+export default class PIXITextBox {
+	private PIXIText: Text;
+	private lastUpdateMillis: number;
+
+	constructor (PIXIText: Text) {
+		this.PIXIText = PIXIText;
+		this.lastUpdateMillis = 0;
 	}
-	this.lastUpdateMillis = currentTime; 
-	this.PIXIText.text += str;
+
+	setText (str: string) {
+		this.PIXIText.text = str;
+	};
+	addText (str: string) {
+		var currentTime = new Date().getTime();
+		if (currentTime - this.lastUpdateMillis > 200){
+			this.PIXIText.text = '';
+		}
+		this.lastUpdateMillis = currentTime; 
+		this.PIXIText.text += str;
+	}
 }
-
-
-export default PIXITextBox;

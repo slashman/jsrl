@@ -5,12 +5,11 @@
  * @param {*} def ItemDefinition describing the attributes of a particular type of item.
  */
 
-function Item(def){
-	this.def = def;
-}
+export default class Item {
+	private def: any;
+	constructor (def: any) {
+		this.def = def;
+	}
 
-Item.prototype = {
 	// JSRL Doesn't define any specific behavior for items.
 }
-
-export default Item;

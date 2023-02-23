@@ -4,22 +4,39 @@
  * 
  */
 
-
 import Random from '../Random';
+import Level from './Level.class';
 
-function Being(game, level, race){
-	this.game = game;
-	this.level = level;
-	this.tile = race.tile;
-	this.tileName = race.name;
-	this.tilesetData = race.tilesetData;
-	this.x = null;
-	this.y = null;
-	this.intent = 'CHASE';
-}
+export default class Being {
+	private game: any;
+	private level: Level;
+	private tile: any;
+	private tileName: string;
+	private tilesetData: any;
+	private xPosition: number;
+	private yPosition: number;
+	private intent: string;
 
-Being.prototype = {
-	act: function(){
+	get x(): number {
+		return this.xPosition;
+	}
+
+	get y(): number {
+		return this.yPosition;
+	}
+
+	constructor (game: any, level: Level, race: any) {
+		this.game = game;
+		this.level = level;
+		this.tile = race.tile;
+		this.tileName = race.name;
+		this.tilesetData = race.tilesetData;
+		this.xPosition = 0;
+		this.yPosition = 0;
+		this.intent = 'CHASE';
+	}
+
+	act () {
 		switch (this.intent){
 			case 'RANDOM':
 				this.actRandom();
@@ -28,16 +45,18 @@ Being.prototype = {
 				this.actChase();
 				break;
 		}
-	},
-	actRandom: function(){
+	}
+
+	actRandom () {
 		var dx = Random.n(-1, 1);
 		var dy = Random.n(-1, 1);
 		if (!this.level.canWalkTo(this.x+dx,this.y+dy)){
 			return;
 		}
 		this.moveTo(dx, dy);
-	},
-	actChase: function(){
+	}
+
+	actChase () {
 		var nearestEnemy = this.getNearestEnemy();
 		if (!nearestEnemy){
 			return;
@@ -48,18 +67,19 @@ Being.prototype = {
 			return;
 		}
 		this.moveTo(dx, dy);
-	},
-	getNearestEnemy: function(){
+	}
+
+	getNearestEnemy () {
 		return this.game.player;
-	},
-	moveTo: function(dx,dy){
-		this.level.beings[this.x][this.y] = false;
-		this.x = this.x + dx;
-		this.y = this.y + dy;
-		if (!this.level.beings[this.x])
-			this.level.beings[this.x] = [];
-		this.level.beings[this.x][this.y] = this;
+	}
+
+	moveTo (dx: number, dy: number) {
+		this.level.moveBeing(this, dx, dy)
+		this.xPosition = this.x + dx;
+		this.yPosition = this.y + dy;
+	}
+
+	setIntent (intent: string) {
+		this.intent = intent;
 	}
 }
-
-export default Being;

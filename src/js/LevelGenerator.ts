@@ -26,12 +26,12 @@ export default {
 			level.map[Random.n(0,79)][Random.n(0,24)] = Tiles.WATER;
 		}
 		for (var i = 0; i < 5; i++){
-			var being = new Being(level.game, level, Races.RAT);
+			let being = new Being(level.game, level, Races.RAT);
 			level.addBeing(being, Random.n(0,79), Random.n(0,24));
-			being.intent = 'RANDOM';
+			being.setIntent('RANDOM');
 			being = new Being(level.game, level, Races.TROLL);
 			level.addBeing(being, Random.n(0,79), Random.n(0,24));
-			being.intent = 'CHASE';
+			being.setIntent('CHASE');
 		}
 		level.addItem(new Item(Items.IRON_SWORD), Random.n(0,79), Random.n(0,25));
 		level.addItem(new Item(Items.BOOK_OF_MIRDAS), Random.n(0,79), Random.n(0,25));

@@ -4,16 +4,27 @@
  * Contains Beings, Items and exits.
  * Controls the order of interaction of all beings and the player.
  * 
- * @param {*} game 
- * @param {*} id 
  */
 
-var Level = function(game, id){
-	this.init(game, id);
-}
+import Being from "./Being.class";
+import Item from "./Item.class";
 
-Level.prototype = {
-	init: function(game, id){
+export default class Level {
+	private map: any[];
+	private beings: Being[][];
+	private exits: any[];
+	private items: any[];
+	
+	private beingsList: Being[];
+	private game: any;
+	private id: string;
+	private player: any;
+
+	constructor (game: any, id: string) {
+		this.init(game, id);
+	}
+
+	init (game: any, id: string) {
 		this.map = [];
 		this.beings = [];
 		this.beingsList = [];
@@ -23,24 +34,26 @@ Level.prototype = {
 		this.game = game;
 		this.id = id;
 		this.player = game.player;
-	},
-	beingsTurn: function(){
+	}
+
+	beingsTurn () {
 		for (var i = 0; i < this.beingsList.length; i++){
 			this.beingsList[i].act();
 		}
 		this.player.updateFOV();
 		this.game.display.refresh();
 		this.game.input.inputEnabled = true;
-	},
-	addBeing: function(being, x, y){
+	}
+
+	addBeing (being: Being, x: number, y: number) {
 		this.beingsList.push(being);
 		if (!this.beings[x])
 			this.beings[x] = [];
-		being.x = x;
-		being.y = y;
+		being.moveTo(x, y);
 		this.beings[x][y] = being;
-	},
-	canWalkTo: function(x, y){
+	}
+
+	canWalkTo (x: number, y: number) {
 		try {
 			if (this.map[x][y].solid){
 				return false;
@@ -55,30 +68,41 @@ Level.prototype = {
 		if (this.player && this.player.x === x && this.player.y === y)
 			return false;
 		return true;
-	},
-	addExit: function(x,y, levelId, tile){
+	}
+
+	addExit (x: number, y: number, levelId: string, tile: any) {
 		if (!this.map[x])
 			this.map[x] = [];
 		this.map[x][y] = tile;
 		if (!this.exits[x])
 			this.exits[x] = [];
 		this.exits[x][y] = levelId;
-	},
-	addItem: function(item, x, y){
+	}
+
+	addItem (item: Item, x: number, y: number) {
 		if (!this.items[x])
 			this.items[x] = [];
 		this.items[x][y] = item;
-	},
-	getItem: function(x, y){
+	}
+
+	getItem (x: number, y: number) {
 		if (!this.items[x])
 			return false;
 		return this.items[x][y];
-	},
-	removeItem: function(x, y){
+	}
+
+	removeItem (x: number, y: number) {
 		if (!this.items[x])
 			this.items[x] = [];
 		this.items[x][y] = false;
-	},
-}
+	}
 
-export default Level;
+	moveBeing (being: Being, dx: number, dy: number) {
+		if (!this.beings[being.x])
+			this.beings[being.x] = [];
+		this.beings[being.x][being.y] = null;
+		if (!this.beings[being.x + dx])
+			this.beings[being.x + dx] = [];
+		this.beings[being.x + dx][being.y + dy] = being;
+	}
+}
