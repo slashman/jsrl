@@ -14,7 +14,11 @@ let options = {
   module: {
     rules: [
       {
-        test: /\.js(x)?$/,
+        test: /\.ts?$/,
+        use: "ts-loader"
+      },
+      {
+        test: /\.js?$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
@@ -31,7 +35,7 @@ let options = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.ts'],
   },
 
   entry: {
