@@ -5,7 +5,7 @@ JavaScript Roguelike Template - A basic TypeScript roguelike you can build upon 
 ![UnicodeTiles character display](./screenshot-unicodeTiles.png?raw=true "UnicodeTiles character display")
 
 # What is this?
-JSRL is a bare-bones roguelike featuring both tiles and character-based displays. It can be player via web browser or as a native app for Windows, Mac and Linux.
+JSRL is a bare-bones roguelike featuring both tiles and character-based displays. It can be played via a web browser or as a native app for Windows, Mac, and Linux.
 
 Check out the online demo at: https://slashie.net/jsrl
 
@@ -15,7 +15,7 @@ You can use this simple skeleton game as a starting point for your full-fledged 
 * Raycasting Field of View algorithm 
 * Movement between persistent levels
 * Enemies moving around chasing the player
-* An action system including actions to pick up, drop and using items
+* An action system including actions to pick up, drop, and use items
 * Memory of visited areas.
 * Infrastructure for Level Generation
 * Line wrap text boxes
