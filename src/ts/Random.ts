@@ -1,5 +1,5 @@
 export default {
-	n: function(a, b){
-		return Math.floor(Math.random() * (b - a + 1))+a;
+	n: (a : number, b : number) => {
+		return Math.floor(Math.random() * (b - a + 1)) + a;
 	}
 }
