@@ -11,12 +11,12 @@ import Random from '../Random';
 
 export default {
 	levels: {},
-	init: function(game){
+	init: function(game) {
 		this.game = game;
 		this.player = game.player;
-		this.loadLevel('testLevel'+Random.n(0,1000));
+		this.loadLevel('testLevel' + Random.n(0,1000));
 	},
-	loadLevel: function(levelId){
+	loadLevel: function(levelId: string) {
 		if (this.levels[levelId]){
 			this.level.exitX = this.player.x;
 			this.level.exitY = this.player.y;
@@ -24,7 +24,7 @@ export default {
 			this.player.x = this.level.exitX;
 			this.player.y = this.level.exitY;
 		} else {
-			if (this.level){
+			if (this.level) {
 				this.level.exitX = this.player.x;
 				this.level.exitY = this.player.y;
 				var previousLevelId = this.level.id;

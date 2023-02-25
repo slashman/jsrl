@@ -32,7 +32,7 @@ function resizeCanvas () {
 window.addEventListener("resize", resizeCanvas);
 
 export default {
-	init: async function(game, config){
+	init: async function(game, config) {
 		this.textureMap = {};
 		this.game = game;
 		const app = new Application<HTMLCanvasElement>({
@@ -130,7 +130,7 @@ export default {
 
 		resizeCanvas();
 	},
-	getTerrain: function(x,y){
+	getTerrain: function(x: number, y: number) {
 		var level = this.game.world.level;
 		var xr = x - level.player.x;
 		var yr = y - level.player.y;
@@ -155,7 +155,7 @@ export default {
 			return null;
 		}
 	},
-	getItem: function(x,y){
+	getItem: function(x: number, y: number) {
 		var level = this.game.world.level;
 		var xr = x - level.player.x;
 		var yr = y - level.player.y;
@@ -169,7 +169,7 @@ export default {
 			return null;
 		}
 	},
-	getBeing: function(x,y){
+	getBeing: function(x: number, y: number) {
 		var level = this.game.world.level;
 		if (x === level.player.x && y === level.player.y){
 			return '28-0';
@@ -186,7 +186,7 @@ export default {
 			return null;
 		}
 	},
-	refresh: function(){
+	refresh: function() {
 		const player = this.game.world.level.player;
 		const noTexture = this.textureMap['0-0'];
 		for (var x = -this.semiViewportCountX; x < this.semiViewportCountX; x++) {
@@ -213,7 +213,7 @@ export default {
 			}
 		}
 	},
-	showInventory: function(){
+	showInventory: function() {
 		this.inventoryBackground.visible = true;
 		let string = "Inventory\n\n";
 		for (var i = 0; i < this.game.player.items.length; i++){
@@ -229,12 +229,12 @@ export default {
 		this.inventoryText.visible = true;
 		this.inventoryCursor.visible = true;
 	},
-	hideInventory: function(){
+	hideInventory: function() {
 		this.inventoryBackground.visible = false;
 		this.inventoryText.visible = false;
 		this.inventoryCursor.visible = false;
 	},
-	message: function(str){
+	message: function(str: string) {
 		this.textBox.addText(str);
 	},
 	titleScreen() {

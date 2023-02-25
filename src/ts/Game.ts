@@ -22,7 +22,7 @@ declare global {
 }
 
 const Game = {
-	start: async function(config){
+	start: async function(config) {
 		let selectedDisplay;
 		switch (config.display) {
 			case 'pixi':

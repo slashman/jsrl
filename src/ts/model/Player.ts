@@ -19,13 +19,13 @@ export default {
 	visible: [],
 	memory: {},
 	items: [],
-	init: function(game){
+	init: function(game) {
 		this.game = game;
 		for (var j = -this.MAX_SIGHT_RANGE; j <= this.MAX_SIGHT_RANGE; j++){
 			this.visible[j] = [];
 		}
 	},
-	tryMove: function(dir){
+	tryMove: function(dir) {
 		if (!this.game.world.level.canWalkTo(this.x+dir.x, this.y+dir.y)){
 			this.game.input.inputEnabled = true;
 			return;
@@ -34,18 +34,18 @@ export default {
 		this.y += dir.y;
 		this.land();
 	},
-	land: function(){
+	land: function() {
 		if (this.game.world.level.exits[this.x] && this.game.world.level.exits[this.x][this.y]){
 			this.game.world.loadLevel(this.game.world.level.exits[this.x][this.y]);
 		}
 		this.endTurn();
 	},
-	endTurn: function(){
+	endTurn: function() {
 		this.updateFOV();
 		this.game.display.refresh();
 		this.game.world.level.beingsTurn();
 	},
-	remember: function(x, y){
+	remember: function(x: number, y: number) {
 		var memory = this.memory[this.game.world.level.id];
 		if (!memory){
 			memory = [];
@@ -56,7 +56,7 @@ export default {
 		}
 		memory[x][y] = true;
 	},
-	remembers: function(x, y){
+	remembers: function(x: number, y: number) {
 		var memory = this.memory[this.game.world.level.id];
 		if (!memory){
 			return false;
@@ -66,7 +66,7 @@ export default {
 		}
 		return memory[x][y] === true;
 	},
-	canSee: function(dx, dy){
+	canSee: function(dx: number, dy: number) {
 		try {
 			return this.visible[dx][dy] === true;
 		} catch(err) {
@@ -74,10 +74,10 @@ export default {
 			return false; 
 		}
 	},
-	getSightRange: function(){
+	getSightRange: function() {
 		return 15;
 	},
-	updateFOV: function(){
+	updateFOV: function() {
 		/*
 		 * This function uses simple raycasting, 
 		 * use something better for longer ranges
@@ -90,7 +90,7 @@ export default {
 		for (var a = 0; a < Math.PI * 2; a += step)
 			this.shootRay(a);
 	},
-	shootRay: function (a) {
+	shootRay: function (a: number) {
 		var step = 0.3333;
 		var maxdist = this.getSightRange() < this.MAX_SIGHT_RANGE ? this.getSightRange() : this.MAX_SIGHT_RANGE;
 		maxdist /= step;
@@ -112,28 +112,28 @@ export default {
 			xx += dx; yy += dy;
 		}
 	},
-	canPick: function(){
+	canPick: function() {
 		return this.items.length < 24;
 	},
-	addItem: function(item){
+	addItem: function(item) {
 		if (this.items.length === 24){
 			return;
 		}
 		this.items.push(item);
 		this.items.sort(this.itemSorter);
 	},
-	removeItem: function(item){
+	removeItem: function(item) {
 		this.items.splice(this.items.indexOf(item), 1);
 		this.items.sort(this.itemSorter);	
 	},
-	itemSorter: function(a, b){
+	itemSorter: function(a, b) {
 		if (a.def.type.name === b.def.type.name){
 			return a.def.name > b.def.name ? 1 : -1;
 		} else {
 			return a.def.type.name > b.def.type.name ? 1 : -1;
 		}
 	},
-	tryPickup: function(){
+	tryPickup: function() {
 		var item = this.game.world.level.getItem(this.x, this.y);
 		if (item){
 			if (!this.canPick()){
@@ -145,7 +145,7 @@ export default {
 			}
 		}
 	},
-	tryDrop: function(item){
+	tryDrop: function(item) {
 		var underItem = this.game.world.level.items[this.x] && this.game.world.level.items[this.x][this.y];
 		if (underItem){
 			this.game.display.message("Cannot drop the "+item.def.name+" here.");
@@ -155,7 +155,7 @@ export default {
 			this.game.display.message("You drop the "+item.def.name+".");
 		}
 	},
-	tryUse: function(item, dx, dy){
+	tryUse: function(item, dx, dy) {
 		item.def.type.useFunction(this.game, item, dx, dy);
 	}
 }

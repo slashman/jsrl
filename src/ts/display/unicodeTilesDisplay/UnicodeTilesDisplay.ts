@@ -35,7 +35,7 @@ window.addEventListener("resize", resizeCanvas);
 export default {
 	BLANK_TILE: new ut.Tile(' ', 255, 255, 255),
 	CURSOR_TILE: new ut.Tile('*', 255, 255, 255),
-	init: function(game, config){
+	init: function(game, config) {
 		this.game = game;
 		this.term = new ut.Viewport(document.getElementById("game"), 80, 25);
 		theCanvas = this.term.renderer.canvas;
@@ -45,14 +45,14 @@ export default {
 		this.centered = config && config.centered;
 		resizeCanvas();
 	},
-	getDisplayedTile: function(x,y){
+	getDisplayedTile: function(x: number,y: number) {
 		var level = this.game.world.level;
 		if (x === level.player.x && y === level.player.y){
 			return level.player.tile;
 		}
 		var xr = x - level.player.x;
 		var yr = y - level.player.y;
-		if (level.player.canSee(xr, yr)){
+		if (level.player.canSee(xr, yr)) {
 			if (level.beings[x] && level.beings[x][y]){
 				return level.beings[x][y].tile;
 			} else if (level.items[x] && level.items[x][y]){
@@ -72,7 +72,7 @@ export default {
 			return ut.NULLTILE;
 		}
 	},
-	refresh: function(){
+	refresh: function() {
 		if (this.centered) {
 			this.eng.update(this.game.player.x, this.game.player.y);
 		} else {
@@ -81,7 +81,7 @@ export default {
 		this.textBox.draw();
 		this.term.render();
 	},
-	showInventory: function(){
+	showInventory: function() {
 		this.inventoryBox.draw();
 		var xBase = 20;
 		var yBase = 5;
@@ -103,7 +103,7 @@ export default {
 		this.term.clear();
 		this.refresh();		
 	},
-	message: function(str){
+	message: function(str: string) {
 		this.textBox.addText(str);
 		this.textBox.draw();
 		this.term.render();
