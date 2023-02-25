@@ -9,7 +9,7 @@
 
 import './css/styles.css';
 import {printEnvironment} from './environment';
-import Game from './js/Game';
+import Game from './ts/Game';
 
 window.onload = () => {
   printEnvironment()
