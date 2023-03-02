@@ -21,10 +21,13 @@ What is this good for? the idea is you take this simple game and start adding wh
 * Line wrap text boxes
 
 # How to use
-* `git clone git@github.com:slashman/jsrl.git`
-* `cd jsrl`
-* `rm -rf .git` (Delete .git folder)
-* Create awesoem gaem
+
+```sh
+git clone https://github.com/virtuoushub/jsrl.git \
+  && cd "$(basename "$_" .git)" \
+  && yarn install \
+  && yarn start
+```
 
 # Local Development Server
 
