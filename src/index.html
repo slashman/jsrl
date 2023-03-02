@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<% if (process.env.NODE_ENV === "production" ) { %>
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' blob; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/;  img-src 'self';worker-src 'self' blob: ">
+	<% } %>
+	<title><%= htmlWebpackPlugin.options.title %></title>
+	<link href="./unicodetiles/unicodetiles.css" rel="stylesheet" type="text/css" />
+	<script src="./unicodetiles/unicodetiles.js"></script>
+	<script src="./unicodetiles/input.js"></script>
+
+	<% if (htmlWebpackPlugin.options.graphics === 'unicodetiles') { %>
+	<script src="./unicodetiles/ut.WebGLRenderer.js"></script>
+	<script src="./unicodetiles/ut.CanvasRenderer.js"></script>
+	<script src="./unicodetiles/ut.DOMRenderer.js"></script>
+	<% } %>
+	<link rel="icon" href="./favicon.ico" sizes="any" />
+	<base href="./" />
+</head>
+<body>
+	<div class="center">
+		<div id="game"></div>
+	</div>
+	<div style="opacity: 0; position: absolute; top: 0; left: 0;">
+		<% if (htmlWebpackPlugin.options.graphics === 'unicodetiles') { %>
+			<span style="font-family: DejaVuSansMono_ut;">-</span>
+		<% } else { %>
+			<span style="font-family: 'Kenney Pixel';">-</span>
+		<% } %>
+	</div>
+</body>
+</html>

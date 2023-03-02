@@ -1,0 +1,25 @@
+@font-face {
+	font-family: 'Kenney Pixel';
+	src: url('fonts/Kenney Pixel.ttf') format('truetype');
+}
+
+body {
+    background-color: black;
+    font-family: DejaVuSansMono_ut, sans-serif;
+    color: white;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.center {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#game {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

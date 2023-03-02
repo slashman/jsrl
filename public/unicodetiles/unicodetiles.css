@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'DejaVuSansMono_ut';
+	src: url('fonts/DejaVuSansMono.eot');
+	src: url('fonts/DejaVuSansMono.eot?#iefix') format('eot'),
+	url('fonts/DejaVuSansMono.woff') format('woff'),
+	url('fonts/DejaVuSansMono.ttf') format('truetype');
+}
+
+.unicodetiles {
+	font-family: "DejaVuSansMono_ut";
+	font-size: 24pt;
+	white-space: pre;
+	text-align: center;
+	line-height: 1;
+	letter-spacing: 0px;
+	display: inline-block;
+}
+
+.unicodetiles div {
+	float: left;
+	height: 1em;
+}
+
+.unicodetiles br {
+	clear: both;
+}
