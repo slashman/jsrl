@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "parcel": "2.3.2"
+    "parcel": "2.8.3"
   },
   "packageManager": "yarn@3.4.1"
 }
