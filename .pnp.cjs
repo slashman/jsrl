@@ -30,6 +30,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@babel/core", "npm:7.21.0"],\
             ["@babel/preset-env", "virtual:f7f22ebe040f18d3ee7063999cdad04122b7b0f626b8c0cc831622199fc2a2b4ea02cdf7ab642b71c61b3bd3bb909723d5bc7f0163dedab4ce6206c80bd47038#npm:7.20.2"],\
+            ["@pixi/assets", "npm:7.1.3"],\
+            ["@pixi/core", "npm:7.1.3"],\
+            ["@pixi/display", "npm:7.1.3"],\
+            ["@pixi/events", "npm:7.1.3"],\
+            ["@pixi/graphics", "npm:7.1.3"],\
+            ["@pixi/mesh", "npm:7.1.3"],\
+            ["@pixi/sprite", "npm:7.1.3"],\
+            ["@pixi/text", "npm:7.1.3"],\
             ["babel-loader", "virtual:f7f22ebe040f18d3ee7063999cdad04122b7b0f626b8c0cc831622199fc2a2b4ea02cdf7ab642b71c61b3bd3bb909723d5bc7f0163dedab4ce6206c80bd47038#npm:9.1.2"],\
             ["clean-webpack-plugin", "virtual:f7f22ebe040f18d3ee7063999cdad04122b7b0f626b8c0cc831622199fc2a2b4ea02cdf7ab642b71c61b3bd3bb909723d5bc7f0163dedab4ce6206c80bd47038#npm:4.0.0"],\
             ["concurrently", "npm:7.6.0"],\
@@ -6491,6 +6499,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jsrl-and-the-template-of-doom", "workspace:."],\
             ["@babel/core", "npm:7.21.0"],\
             ["@babel/preset-env", "virtual:f7f22ebe040f18d3ee7063999cdad04122b7b0f626b8c0cc831622199fc2a2b4ea02cdf7ab642b71c61b3bd3bb909723d5bc7f0163dedab4ce6206c80bd47038#npm:7.20.2"],\
+            ["@pixi/assets", "npm:7.1.3"],\
+            ["@pixi/core", "npm:7.1.3"],\
+            ["@pixi/display", "npm:7.1.3"],\
+            ["@pixi/events", "npm:7.1.3"],\
+            ["@pixi/graphics", "npm:7.1.3"],\
+            ["@pixi/mesh", "npm:7.1.3"],\
+            ["@pixi/sprite", "npm:7.1.3"],\
+            ["@pixi/text", "npm:7.1.3"],\
             ["babel-loader", "virtual:f7f22ebe040f18d3ee7063999cdad04122b7b0f626b8c0cc831622199fc2a2b4ea02cdf7ab642b71c61b3bd3bb909723d5bc7f0163dedab4ce6206c80bd47038#npm:9.1.2"],\
             ["clean-webpack-plugin", "virtual:f7f22ebe040f18d3ee7063999cdad04122b7b0f626b8c0cc831622199fc2a2b4ea02cdf7ab642b71c61b3bd3bb909723d5bc7f0163dedab4ce6206c80bd47038#npm:4.0.0"],\
             ["concurrently", "npm:7.6.0"],\
